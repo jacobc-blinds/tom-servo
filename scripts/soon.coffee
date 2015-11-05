@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   soon - Display a soon image (allows for many Os)
+#   soon - Displays a "soon" meme image anytime someone says the word "soon".
 #
 # Author:
 #   keithamus
