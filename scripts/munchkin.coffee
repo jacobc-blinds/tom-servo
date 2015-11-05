@@ -1,5 +1,5 @@
 # Description:
-#   Show the Blame Thang meme image when someone blames Thang.
+#   Show a game image when someone mentions a particular game.
 #
 # Dependencies:
 #   None
@@ -8,10 +8,10 @@
 #   None
 #
 # Commands:
-#   blamethang
+#   munchkin
 #
 # Author:
-#   Greg Major
+#   Will Killian
 
 images = [
   "http://www.worldofmunchkin.com/cardgame/img/deluxe.jpg",
