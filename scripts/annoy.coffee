@@ -9,7 +9,7 @@
 #
 # Commands:
 #   hubot annoy me - Insructs hubot to annoy you.
-#   hubot unannoy me - Asks Hhbot to stop annoying you.
+#   hubot unannoy me - Asks hubot to stop annoying you.
 #
 # Author:
 #   Greg Major
