@@ -12,6 +12,14 @@
 
 module.exports = (robot) ->
 
+  # Person enters
+  robot.enter (res) ->
+    res.send "Is it too early to hate this guy?"
+
+  # Person leaves
+  robot.leave (res) ->
+    res.send "Y'ah know I'm good at this. I should have started killing long ago."
+
   # Show the messed up goat when someone mentions a merge conflict
   robot.hear /merge\s?conflict/i, (msg) ->
     msg.send "http://i.imgur.com/9tNUCyH.gifv"
@@ -73,3 +81,39 @@ module.exports = (robot) ->
       .http("https://api.github.com/zen")
       .get() (err, res, body) ->
         msg.send body
+
+  # SeaLab 2021 Energy!
+  robot.hear /energy/i, (msg) ->
+    msg.reply "I have the energy of a bear that has the energy of two bears!"
+
+  # SeaLab 2021 Bad Idea!
+  robot.hear /bad idea/i, (msg) ->
+    msg.reply "Oh why don't you just shout down every idea I have? How about you call Bruce Springsteen and tell him to get another nickname since you're already the Boss! Huh? Yeah? Yeah!"
+  
+  # This coffee sucks!
+  robot.hear /coffee/i, (msg) ->
+    msg.reply "You know, our coffee tastes like it came out of an oil derrick. What'd you strain it through, a mummy?"
+
+  # Have something to drink
+  robot.hear /something to drink/i, (msg) ->
+    msg.reply "Here, be sure to drink it all, sometimes the poison is on the bottom."
+
+  # Drunk
+  robot.hear /drunk/i, (msg) ->
+    msg.reply "I feel trembly, oh so shaky, I've had whiskey and vodka and gin."
+
+  # Traffic
+  robot.hear /traffic/i, (msg) ->
+    msg.reply "Well, there's a lot of congestion on the highway, so you might want to consider an alternate route. Like, down the side of a steep mountain."
+
+  # Trouble
+  robot.hear /trouble/i, (msg) ->
+    msg.reply "Why is the coat rack on fire?"
+
+  # Plaid
+  robot.hear /plaid/i, (msg) ->
+    msg.reply "Two different kinds of plaid? Ew. I'm a naked robot and even *I* know that's a Fashion Don't."
+
+  # Murder
+  robot.hear /murder/i, (msg) ->
+    msg.reply "Thank you very much for showing up. I'd like to welcome you all to our MURDER... MYSTERY... DINNER PARTY!"

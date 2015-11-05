@@ -21,7 +21,8 @@
     "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.3.0",
     "hubot-soon": "hubot-scripts/hubot-soon",
-    "hubot-standup-alarm": "*"
+    "hubot-standup-alarm": "*",
+    "scraper": "0.0.9"
   },
   "engines": {
     "node": "0.10.x"
