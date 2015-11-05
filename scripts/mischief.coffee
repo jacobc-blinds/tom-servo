@@ -15,26 +15,27 @@ module.exports = (robot) ->
   # Show the messed up goat when someone mentions a merge conflict
   robot.hear /merge\s?conflict/i, (msg) ->
     msg.send "http://i.imgur.com/9tNUCyH.gifv"
+    msg.send "Oh snap! It's about to get real!"
     
   # Show Bruce Lee when someone volunteers to take a look
   robot.hear /\btake\b.+\blook\b/igm, (msg) ->
     msg.send "http://i.imgur.com/vcGQtyO.gifv"
-    msg.send "Oh, yeah! #{msg.user.name} is gonna take a look!"
+    msg.send "Game on!"
     
   # Show Bruce Lee when someone volunteers to have a look
   robot.hear /\bhave\b.+\blook\b/igm, (msg) ->
     msg.send "http://i.imgur.com/vcGQtyO.gifv"
-    msg.send "Game on! #{msg.user.name} is gonna have a look!"
+    msg.send "I wouldn't want to be on the other side of that 'look', pal!"
     
   # Show Bruce Lee when someone volunteers to look
   robot.hear /\bwill\b.+\blook\b/igm, (msg) ->
     msg.send "http://i.imgur.com/vcGQtyO.gifv"
-    msg.send "SNAP! #{msg.user.name} is gonna look at it!"
+    msg.send "Look? Yeah, it's about to get looked at REAL good!"
     
   # Show Bruce Lee when someone says they can fix something
   robot.hear /\bcan\b.+\bfix\b/igm, (msg) ->
     msg.send "http://i.imgur.com/vcGQtyO.gifv"
-    msg.send "Look out! #{msg.user.name} is gonna fix that!"
+    msg.send "Fix it? It's gonna wish it never existed in the first place!"
     
   # Show the Friday guy when someone mentions Friday
   robot.hear /friday/i, (msg) ->
@@ -66,23 +67,9 @@ module.exports = (robot) ->
   robot.hear /blame\s?thang/i, (msg) ->
     msg.send "https://i.imgur.com/HArwLsc.jpg"
     
-  # Annoy people!
-  annoyIntervalId = null
-  
-  robot.respond /annoy me/, (res) ->
-    if annoyIntervalId
-      res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
-      return
-  
-    res.send "Hey, want to hear the most annoying sound in the world?"
-    annoyIntervalId = setInterval () ->
-      res.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
-    , 1000
-  
-  robot.respond /unannoy me/, (res) ->
-    if annoyIntervalId
-      res.send "GUYS, GUYS, GUYS!"
-      clearInterval(annoyIntervalId)
-      annoyIntervalId = null
-    else
-      res.send "Not annoying you right now, am I?"
+  # Get a Zen message from GitHub
+  robot.hear /\bzen\b/i, (msg) ->
+    msg
+      .http("https://api.github.com/zen")
+      .get() (err, res, body) ->
+        msg.send body

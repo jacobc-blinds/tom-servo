@@ -7,14 +7,10 @@
 # Configuration:
 #   None
 #
-# Commands:
-#   (env) is down - Shows the "(env) is down" meme image when someone says that an environment is down.
-#
 # Author:
 #   Greg Major
 
 images = [
-  "https://i.imgur.com/zCYuVDD.jpg",
   "https://i.imgur.com/YcmTj6j.gifv",
   "http://i.imgur.com/FAqJZdw.gifv",
   "http://i.imgur.com/RSg3ely.gifv"
@@ -27,5 +23,5 @@ module.exports = (robot) ->
     msg.send msg.random images
 
   # QA
-  #robot.hear /\bqa[0-9]\b.+\bdown\b/igm, (msg) ->
-  #  msg.send msg.random images
+  robot.hear /\bqa[0-9]\b.+\bdown\b/igm, (msg) ->
+    msg.send msg.random images

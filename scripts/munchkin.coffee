@@ -7,9 +7,6 @@
 # Configuration:
 #   None
 #
-# Commands:
-#   munchkin
-#
 # Author:
 #   Will Killian
 
