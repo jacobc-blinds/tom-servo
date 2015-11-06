@@ -9,15 +9,8 @@
 #   HUBOT_MEMEGENERATOR_PASSWORD -- Password for account on MemeGenerator.net
 #
 # Commands:
-#   not sure if <something> or <something else> - Generates a Futurama Fry meme
-#   <something> is bad and you should feel bad - Generates a Zoidberg meme
-#   <things> are bad and you should feel bad - Generates a Zoidberg meme
 #	  futurama fry - Shows a random Futurama Fry meme
-#   <question> why not zoidberg? - Generates a Why Not Zoidberg? meme
-#   <something> does not work that way! - Generates a Morbo meme
-#   <things> do not work that way! - Generates a Morbo meme
 #   hypnotoad - ALL GLORY TO THE HYPNOTOAD
-#   don't want to live - Shows the Professor's "don't want to live on this planet anymore" meme
 #   shut up and take my money - Shows the Fry meme
 #
 # Notes:
@@ -26,30 +19,42 @@
 # Author:
 #   carmstrong
 
+# NOTE: There are problems with the API. I haven't had time to debug so I've simply commented out the ones that don't work.
+
 module.exports = (robot) ->
-  robot.hear /not sure if (.*) or (.*)/i, (msg) ->
-    generateMeme msg, 305, 84688, "not sure if #{ msg.match[1] }", "or #{ msg.match[2] }"
+  
+  #   not sure if <something> or <something else> - Generates a Futurama Fry meme
+  # robot.hear /not sure if (.*) or (.*)/i, (msg) ->
+  #   generateMeme msg, 305, 84688, "not sure if #{ msg.match[1] }", "or #{ msg.match[2] }"
 
-  robot.hear /(.*) is bad and you should feel bad/i, (msg) ->
-    generateMeme msg, 12270, 1136171, "#{ msg.match[1] } is bad", "and you should FEEL bad!"
+#   <something> is bad and you should feel bad - Generates a Zoidberg meme
+#   <things> are bad and you should feel bad - Generates a Zoidberg meme
 
-  robot.hear /(.*) are bad and you should feel bad/i, (msg) ->
-    generateMeme msg, 12270, 1136171, "#{ msg.match[1] } are bad", "and you should FEEL bad!"
+  # robot.hear /(.*) is bad and you should feel bad/i, (msg) ->
+  #   generateMeme msg, 12270, 1136171, "#{ msg.match[1] } is bad", "and you should FEEL bad!"
 
-  robot.hear /(.*) why not zoidberg?/i, (msg) ->
-    generateMeme msg, 135099, 1643190, msg.match[1], "why not zoidberg?"
+  # robot.hear /(.*) are bad and you should feel bad/i, (msg) ->
+  #   generateMeme msg, 12270, 1136171, "#{ msg.match[1] } are bad", "and you should FEEL bad!"
 
-  robot.hear /(.*) does not work that way/i, (msg) ->
-    generateMeme msg, 2784, 1113725, msg.match[1], "does not work that way"
+#   <question> why not zoidberg? - Generates a Why Not Zoidberg? meme
+  # robot.hear /(.*) why not zoidberg?/i, (msg) ->
+  #   generateMeme msg, 135099, 1643190, msg.match[1], "why not zoidberg?"
 
-  robot.hear /(.*) do not work that way/i, (msg) ->
-    generateMeme msg, 2784, 1113725, msg.match[1], "do not work that way"
+#   <something> does not work that way! - Generates a Morbo meme
+#   <things> do not work that way! - Generates a Morbo meme
+
+#   robot.hear /(.*) does not work that way/i, (msg) ->
+#     generateMeme msg, 2784, 1113725, msg.match[1], "does not work that way"
+# 
+#   robot.hear /(.*) do not work that way/i, (msg) ->
+#     generateMeme msg, 2784, 1113725, msg.match[1], "do not work that way"
 
   robot.hear /.*(hypnotoad).*/i, (msg) ->
     msg.send "http://i0.kym-cdn.com/photos/images/newsfeed/000/008/746/hypnotoadfullsize.gif"
 
-  robot.hear /.*(don'?t want to live).*/i, (msg) ->
-    msg.send "http://i0.kym-cdn.com/photos/images/newsfeed/000/126/314/3cd8a33a.png"
+  #   don't want to live - Shows the Professor's "don't want to live on this planet anymore" meme
+  # robot.hear /.*(don'?t want to live).*/i, (msg) ->
+  #   msg.send "http://i0.kym-cdn.com/photos/images/newsfeed/000/126/314/3cd8a33a.png"
 
   robot.hear /shut up and take my money/i, (msg) ->
     msg.send "http://i.imgur.com/QlmfC.jpg"
