@@ -20,6 +20,10 @@ module.exports = (robot) ->
   robot.leave (res) ->
     res.send "Some cause happiness wherever they go; others, whenever they go."
 
+  # Database
+  robot.hear /\(damn you|dammit)\b.+\bservo\b/igm, (msg) ->
+    msg.reply "Sorry :(."
+  
   # Show the messed up goat when someone mentions a merge conflict
   robot.hear /merge\s?conflict/i, (msg) ->
     msg.send "http://i.imgur.com/9tNUCyH.gifv"
@@ -146,7 +150,7 @@ module.exports = (robot) ->
   robot.hear /\b(\W|^)(be|running)\b.+\blate\b(\W|$)/igm, (msg) ->
     msg.reply "The trouble with being punctual is that nobody’s there to appreciate it."
 
-  # Running Late
+  # Database
   robot.hear /(\W|^)(database|db)(\W|$)/i, (msg) ->
     msg.reply "A database is a place where you can lose information systematically."
 
