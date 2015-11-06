@@ -11,5 +11,8 @@
   "hubot-rules",
   "hubot-shipit",
   "hubot-reaction",
-  "hubot-standup-alarm"
+  "hubot-standup-alarm",
+  "hubot-plusplus",
+  "hubot-tell",
+  "hubot-codinglove"
 ]

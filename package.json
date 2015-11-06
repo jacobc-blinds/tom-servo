@@ -22,7 +22,10 @@
     "hubot-slack": "^3.3.0",
     "hubot-soon": "hubot-scripts/hubot-soon",
     "hubot-standup-alarm": "*",
-    "scraper": "0.0.9"
+    "scraper": "0.0.9",
+    "hubot-tell": "*",
+    "hubot-plusplus": "*",
+    "hubot-codinglove": "*"
   },
   "engines": {
     "node": "0.10.x"
