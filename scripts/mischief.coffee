@@ -21,7 +21,7 @@ module.exports = (robot) ->
     res.send "Some cause happiness wherever they go; others, whenever they go."
 
   # Database
-  robot.hear /\(damn you|dammit)\b.+\bservo\b/igm, (msg) ->
+  robot.hear /(damn you|dammit)\b.+\bservo\b/igm, (msg) ->
     msg.reply "Sorry :(."
   
   # Show the messed up goat when someone mentions a merge conflict
