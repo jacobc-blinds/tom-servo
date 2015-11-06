@@ -10,9 +10,9 @@
   "hubot-redis-brain",
   "hubot-rules",
   "hubot-shipit",
-  "hubot-reaction",
   "hubot-standup-alarm",
   "hubot-plusplus",
   "hubot-tell",
+  "hubot-soon",
   "hubot-codinglove"
 ]
