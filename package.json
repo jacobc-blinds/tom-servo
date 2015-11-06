@@ -22,7 +22,8 @@
     "scraper": "0.0.9",
     "hubot-tell": "*",
     "hubot-plusplus": "*",
-    "hubot-codinglove": "*"
+    "hubot-codinglove": "*",
+    "cheerio": "*"
   },
   "engines": {
     "node": "0.10.x"
