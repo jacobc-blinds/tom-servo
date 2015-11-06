@@ -12,8 +12,8 @@
 
 images = [
   "http://www.worldofmunchkin.com/cardgame/img/deluxe.jpg",
-  "http://www.worldofmunchkin.com/starmunchkin/",
-  "http://www.worldofmunchkin.com/apocalypse/"
+  "http://www.worldofmunchkin.com/starmunchkin/img/cover_sm.jpg",
+  "http://www.worldofmunchkin.com/apocalypse/img/cover_sm.jpg"
 ]
 
 module.exports = (robot) ->
