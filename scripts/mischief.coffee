@@ -18,7 +18,7 @@ module.exports = (robot) ->
 
   # Person leaves
   robot.leave (res) ->
-    res.send "Y'ah know I'm good at this. I should have started killing long ago."
+    res.send "Some cause happiness wherever they go; others, whenever they go."
 
   # Show the messed up goat when someone mentions a merge conflict
   robot.hear /merge\s?conflict/i, (msg) ->
@@ -99,7 +99,7 @@ module.exports = (robot) ->
     msg.reply "Here, be sure to drink it all, sometimes the poison is on the bottom."
 
   # Drunk
-  robot.hear /drunk/i, (msg) ->
+  robot.hear /(\W|^)(drunk|cantina|beer|whiskey|vodka|booze)(\W|$)/i, (msg) ->
     msg.reply "I feel trembly, oh so shaky, I've had whiskey and vodka and gin."
 
   # Traffic
@@ -117,3 +117,41 @@ module.exports = (robot) ->
   # Murder
   robot.hear /murder/i, (msg) ->
     msg.reply "Thank you very much for showing up. I'd like to welcome you all to our MURDER... MYSTERY... DINNER PARTY!"
+
+  # Theory
+  robot.hear /theory/i, (msg) ->
+    msg.reply "The scientific theory I like best is that the rings of Saturn are composed entirely of lost airline luggage."
+ 
+  # Offense
+  robot.hear /offense/i, (msg) ->
+    msg.reply "Humans are weird. Why do they say “no offense” right before they’re about to offend you?"
+ 
+  # Skydive
+  robot.hear /(\W|^)(skydive|skydiving|parachute)(\W|$)/i, (msg) ->
+    msg.reply "If at first you don’t succeed... so much for skydiving."
+
+  # Argument
+  robot.hear /argument/i, (msg) ->
+    msg.reply "Nothing sucks more than that moment during an argument when you realize you’re wrong."
+
+  # Chicken
+  robot.hear /(\W|^)(chicken|dream)(\W|$)/i, (msg) ->
+    msg.reply "I dream of a better tomorrow, where chickens can cross the road and not be questioned about their motives."
+
+  # Acceptance Criteria
+  robot.hear /(\W|^)(ac|spec|specification|criteria)(\W|$)/i, (msg) ->
+    msg.reply "I read acceptance criteria the same way I read science fiction. I get to the end and I think, 'Well, that’s not going to happen.'"
+
+  # Running Late
+  robot.hear /\b(\W|^)(be|running)\b.+\blate\b(\W|$)/igm, (msg) ->
+    msg.reply "The trouble with being punctual is that nobody’s there to appreciate it."
+
+
+
+
+
+
+
+
+
+
