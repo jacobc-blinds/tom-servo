@@ -42,8 +42,8 @@ module.exports = (robot) ->
           catch e
             return msg.send "Error parsing pivotal story body: #{e}"
 
-          message = "##{story.id} #{story.name}"
+          message = "Story #{story.id} - #{story.name}\n"
           
-          message += " is #{story.current_state}" if story.current_state && story.current_state != "unstarted"
+          message += "#{story.description}"
           
           msg.send message

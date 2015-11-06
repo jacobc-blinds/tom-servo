@@ -146,7 +146,9 @@ module.exports = (robot) ->
   robot.hear /\b(\W|^)(be|running)\b.+\blate\b(\W|$)/igm, (msg) ->
     msg.reply "The trouble with being punctual is that nobody’s there to appreciate it."
 
-
+  # Running Late
+  robot.hear /(\W|^)(database|db)(\W|$)/i, (msg) ->
+    msg.reply "A database is a place where you can lose information systematically."
 
 
 
