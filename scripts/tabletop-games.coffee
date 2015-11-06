@@ -27,6 +27,5 @@ explodingKittenimages = [
   "https://cf.geekdo-images.com/images/pic2691976.png"
 ]
 
-module.exports = (robot) ->
   robot.hear /exploding.*kitten/i, (msg) ->
     msg.send msg.random explodingKittenimages 
