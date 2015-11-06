@@ -1,5 +1,5 @@
 # Description:
-#   Run a command whenever hubot hears something in conversation.
+#   Run a hubot command whenever hubot hears something in conversation.
 #
 # Dependencies:
 #   None
@@ -53,7 +53,7 @@ class Snoop
 
 module.exports = (robot) ->
   
-  # Fire up our snooper...
+  # Fire up our snooper (wrap the bot)...
   snoop = new Snoop robot
 
   # hubot when you hear <pattern> do <something hubot does>
@@ -86,27 +86,41 @@ module.exports = (robot) ->
   # hubot show snooping
   robot.respond /show snooping/i, (msg) ->
     response = "\n"
+    
     for task in snoop.all()
       response += "#{task.key} -> #{task.task}\n"
+    
     msg.send response
 
   robot.hear /(.+)/i, (msg) ->
     
+    # Grab what we heard...
     robotHeard = msg.match[1]
 
+    # Grab what we know...
     tasks = snoop.all()
     
+    # Sort what we know...
     tasks.sort (a,b) ->
       return if a.order >= b.order then 1 else -1
 
+    # Start with an empty set of tasks...
     tasksToRun = []
+    
+    # Now grab every task that matches our key...
     for task in tasks
       if new RegExp(task.key, "i").test(robotHeard)
         tasksToRun.push task
 
+    # Now sort 'em so they play in the requested order...
     tasksToRun.sort (a,b) ->
       return if a.order >= b.order then 1 else -1
 
+    # Boom-shaka-lakka...
     for task in tasksToRun
+      
+      # If the message didn't come from our robot then...
       if (robot.name != msg.message.user.name && !(new RegExp("^#{robot.name}", "i").test(robotHeard)))
+        
+        # Tell our robot to do something...
         robot.receive new TextMessage(msg.message.user, "#{robot.name}: #{task.task}")
