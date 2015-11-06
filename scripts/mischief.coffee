@@ -22,7 +22,7 @@ module.exports = (robot) ->
 
   # Database
   robot.hear /(damn you|dammit)\b.+\bservo\b/igm, (msg) ->
-    msg.reply "Sorry :(."
+    msg.reply "Sorry :("
   
   # Show the messed up goat when someone mentions a merge conflict
   robot.hear /merge\s?conflict/i, (msg) ->
