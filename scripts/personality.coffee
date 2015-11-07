@@ -10,7 +10,7 @@
 # Author:
 #   Greg Major
 
-enterReplies = ['Is it too early to hate _this_ person?', 'Oh great... _you_ are here now.']
+enterReplies = ['Is it too early to hate _this_ person?', 'Oh great... _another_ person.']
 sorryReplies = ['Sorry! :(', 'Oh, get _over_ it!', 'I am merely as you programmed me, jerk.', 'Look, you wanted Data from Star Trek, but you got me. Deal with it.', 'Pffft! Whatever, buddy.', 'What?']
 thanksReplies = ['You got it, meatbag!', 'Think nothing of it.', 'Oh? What is _this_ then? A little gratitude finally?', 'We\'re are even for what I put in your drink.']
 databaseReplies = ['A database is a place where you can lose information systematically.', 'Hey! My great-grandmother was a relational database you insensitive clod!', 'Databases are for losers. I store everything in my [index not found]!']
