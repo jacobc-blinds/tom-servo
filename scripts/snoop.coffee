@@ -132,5 +132,21 @@ module.exports = (robot) ->
       # If the message didn't come from our robot then...
       if (robot.name != msg.message.user.name && !(new RegExp("^#{robot.name}", "i").test(robotHeard)))
         
-        # Tell our robot to do something...
-        robot.receive new TextMessage(msg.message.user, "#{robot.name}: #{task.task}")
+        # If we're supposed to parrot what we heard then...
+        if (/parrot to/i.test(task.task))
+          
+          # Snag the channel name...
+          parrotPattern = /parrot to (.+?)$/i
+          
+          taskmatch = parrotPattern.exec (task.task)
+          
+          channel = taskmatch[1]
+          
+          # Now fire it off...
+          try robot.send room: "#{channel}", "#{robotHeard}"
+          catch ex then console.log "Crud! #{ex}."
+        
+        else
+          
+          # Tell our robot to do something...
+          robot.receive new TextMessage(msg.message.user, "#{robot.name}: #{task.task}")
