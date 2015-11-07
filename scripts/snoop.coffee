@@ -97,6 +97,7 @@ module.exports = (robot) ->
     channel = msg.match[1]
     message = msg.match[2]
     
+    robot.reply "Okay, I will send #{message} to #{channel} for you, lazy human."
     robot.messageRoom channel, message
 
   # Listen to, well... everything pretty much.
