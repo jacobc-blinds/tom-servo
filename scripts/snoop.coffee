@@ -98,7 +98,7 @@ module.exports = (robot) ->
     message = msg.match[1]
     channel = msg.match[2]
     
-    try robot.send channel, message
+    try robot.send room: channel, message
     catch ex then console.log "Crud! #{ex}."
 
   # Listen to, well... everything pretty much.
