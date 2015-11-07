@@ -81,7 +81,7 @@ module.exports = (robot) ->
   robot.respond /stop snooping (for|on) (.+?)$/i, (msg) ->
     pattern = msg.match[2]
     snoop.deleteByPattern(pattern)
-    msg.send "Okay, I will ignore #{pattern} from now on."
+    msg.send "Okay, I will stop snooping on #{pattern} from now on."
 
   # hubot show snooping
   robot.respond /show snooping/i, (msg) ->
@@ -91,7 +91,12 @@ module.exports = (robot) ->
       response += "#{task.key} -> #{task.task}\n"
     
     msg.send response
+  
+  # hubot parrot <message> to <channel>
+  robot.respond /parrot (.+?) to (.+?)$/i (msg) ->
+    robot.messageRoom msg 
 
+  # Listen to, well... everything pretty much.
   robot.hear /(.+)/i, (msg) ->
     
     # Grab what we heard...
