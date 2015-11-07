@@ -226,9 +226,3 @@ module.exports = (robot) ->
     msg.reply msg.random testFailReplies
 
 
-
-
-
-
-
-
