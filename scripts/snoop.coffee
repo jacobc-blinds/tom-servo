@@ -94,7 +94,10 @@ module.exports = (robot) ->
   
   # hubot parrot <message> to <channel>
   robot.respond /parrot (.+?) to (.+?)$/i (msg) ->
-    robot.messageRoom msg 
+    channel = msg.match[1]
+    message = msg.match[2]
+    
+    robot.messageRoom channel, message
 
   # Listen to, well... everything pretty much.
   robot.hear /(.+)/i, (msg) ->
