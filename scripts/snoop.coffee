@@ -93,7 +93,7 @@ module.exports = (robot) ->
     msg.send response
   
   # hubot parrot <message> to <channel>
-  robot.respond /parrot (.+?) to (.+?)$/i (msg) ->
+  robot.respond /parrot (.+?) to (.+?)$/i, (msg) ->
     channel = msg.match[1]
     message = msg.match[2]
     
