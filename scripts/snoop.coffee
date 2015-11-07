@@ -98,8 +98,8 @@ module.exports = (robot) ->
     message = msg.match[1]
     channel = msg.match[2]
     
-    robot.reply "Okay, I will send #{message} to #{channel} for you, lazy human."
-    robot.send channel, message
+    try robot.send channel, message
+    catch ex then console.log "Crud! #{ex}."
 
   # Listen to, well... everything pretty much.
   robot.hear /(.+)/i, (msg) ->
