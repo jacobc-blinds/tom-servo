@@ -24,22 +24,18 @@ TextMessage = require('hubot').TextMessage
 class Snoop
 
   constructor: (@robot) ->
-    console.log "Running the constructor..."
-    
+    # Try to snag saved snoops...
     @savedSnoops = @robot.brain.get('snoop')
     
+    # If there's not anything then simply init to empty...
     if not @savedSnoops
-      console.log "There were no saved snoops in my brain!"
       @savedSnoops = []
     
     @robot.brain.on 'loaded', =>
-      console.log "My brain is ready!"
       @brainSnoops = @robot.brain.get('snoop')
+      
       if @brainSnoops
-        console.log "Getting [#{@brainSnoops}] from my brain..."
         @savedSnoops = @brainSnoops
-    
-    console.log "Saved snoops are: #{@savedSnoops}"
 
   # Gets all the snoops. ALL THE SNOOPS!
   savedSnoops: -> @savedSnoops
@@ -164,7 +160,7 @@ module.exports = (robot) ->
           channel = taskmatch[1]
           
           # Now fire it off...
-          try robot.send room: "#{channel}", "#{robotHeard}"
+          try robot.send room: "#{channel}", "Psst! I heard...\n#{robotHeard}"
           catch ex then console.log "Crud! #{ex}."
         
         else
