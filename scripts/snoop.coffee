@@ -70,12 +70,12 @@ module.exports = (robot) ->
       else
         snoop.add(key, task_split[1], task_split[0])
     
-    msg.send "Shhhh! I am now snooping for #{key}."
+    msg.send "Okay, I am now snooping for #{key}."
 
   # hubot stop snooping
   robot.respond /stop snooping$/i, (msg) ->
     snoop.deleteAll()
-    msg.send 'The cops are coming! Cheese it!'
+    msg.send "Okay, I will stop all snooping."
 
   # hubot stop snooping on <pattern>
   robot.respond /stop snooping (for|on) (.+?)$/i, (msg) ->
