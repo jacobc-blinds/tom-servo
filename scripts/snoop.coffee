@@ -11,7 +11,7 @@
 #   hubot when you hear <pattern> do <something hubot does> - Start snooping
 #   hubot when you hear <pattern> do parrot to <channel - Repeat what hubut hears to a different channel
 #   hubot when you hear <pattern> do 1|<something hubot does>; 2|<some.... - Start snooping with multiple reactions in order
-#   hubot stop snooping - Stop all snooping
+#   hubot stop snooping - Stop all snooping (deletes ALL snoops... be careful!)
 #   hubot stop snooping on <pattern> - Remove a particular snoop
 #   hubot show snoops - Show what hubot is snooping on
 #
@@ -24,11 +24,25 @@ TextMessage = require('hubot').TextMessage
 class Snoop
 
   constructor: (@robot) ->
-    @savedSnoops = @robot.brain.get('snoop') or []
+    console.log "Running the constructor..."
+    
+    @savedSnoops = @robot.brain.get('snoop')
+    
+    if not @savedSnoops
+      console.log "There were no saved snoops in my brain!"
+      @savedSnoops = []
+    
+    @robot.brain.on 'loaded', =>
+      console.log "My brain is ready!"
+      @brainSnoops = @robot.brain.get('snoop')
+      if @brainSnoops
+        console.log "Getting [#{@brainSnoops}] from my brain..."
+        @savedSnoops = @brainSnoops
+    
+    console.log "Saved snoops are: #{@savedSnoops}"
 
   # Gets all the snoops. ALL THE SNOOPS!
-  savedSnoops: () ->
-    @savedSnoops
+  savedSnoops: -> @savedSnoops
   
   # Adds a new snoop.
   add: (pattern, action, order) ->
@@ -48,6 +62,7 @@ class Snoop
   
   # Updates the robot brain. BRAAAAINS!
   updateBrain: (snoops) ->
+    console.log "Putting #{snoops} in my memory banks..."
     @robot.brain.set 'snoop', snoops
     return
 
@@ -87,7 +102,7 @@ module.exports = (robot) ->
   robot.respond /show snoops/i, (msg) ->
     response = "\n"
     
-    if snoop.savedSnoops.length == 0
+    if not snoop.savedSnoops
       response += "I'm not snooping on anything!"
     else
       for task in snoop.savedSnoops
@@ -112,6 +127,9 @@ module.exports = (robot) ->
 
     # Grab what we know...
     tasks = snoop.savedSnoops
+    
+    if !snoop.savedSnoops
+      return
     
     # Sort what we know...
     tasks.sort (a,b) ->
