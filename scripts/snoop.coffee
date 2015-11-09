@@ -9,10 +9,11 @@
 #
 # Commands:
 #   hubot when you hear <pattern> do <something hubot does> - Start snooping
+#   hubot when you hear <pattern> do parrot to <channel - Repeat what hubut hears to a different channel
 #   hubot when you hear <pattern> do 1|<something hubot does>; 2|<some.... - Start snooping with multiple reactions in order
 #   hubot stop snooping - Stop all snooping
 #   hubot stop snooping on <pattern> - Remove a particular snoop
-#   hubot show snooping - Show what hubot is snooping on
+#   hubot show snoops - Show what hubot is snooping on
 #
 # Author:
 #   Greg Major
@@ -93,7 +94,7 @@ module.exports = (robot) ->
     msg.send "Okay, I will stop snooping on #{pattern} from now on."
 
   # hubot show snooping
-  robot.respond /show snooping/i, (msg) ->
+  robot.respond /show snoops/i, (msg) ->
     response = "\n"
     
     for task in snoop.all()
