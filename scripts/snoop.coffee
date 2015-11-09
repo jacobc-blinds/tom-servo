@@ -22,43 +22,33 @@ TextMessage = require('hubot').TextMessage
 
 # Snoop, snoop, snoop, sha-noop!
 class Snoop
-  
+
   constructor: (@robot) ->
-    
-    # Start with an empty cache...
-    @cache = []
-    
-    # When the brain loads, grab our cached data...
-    @robot.brain.on 'loaded', =>
-      if @robot.brain.data.snoop
-        @cache = @robot.brain.get('snoop')
-        #@cache = @robot.brain.data.snoop
+    @savedSnoops = @robot.brain.get('snoop') or []
+
+  # Gets all the snoops. ALL THE SNOOPS!
+  savedSnoops: () ->
+    @savedSnoops
   
   # Adds a new snoop.
   add: (pattern, action, order) ->
     task = {key: pattern, task: action, order: order}
-    @cache.push task
-    updateBrain cache
-    #@robot.brain.data.snoop = @cache
-  
-  # Gets all the snoops. ALL THE SNOOPS!
-  all: -> @cache
+    @savedSnoops.push task
+    @updateBrain @savedSnoops
   
   # Deletes a snoop based on a pattern.
   deleteByPattern: (pattern) ->
-    @cache = @cache.filter (n) -> n.key != pattern
-    updateBrain cache
-    #@robot.brain.data.snoop = @cache
+    @savedSnoops = @savedSnoops.filter (n) -> n.key != pattern
+    @updateBrain @savedSnoops
   
   # Deletes all the snoops. You bastard!
   deleteAll: () ->
-    @cache = []
-    updateBrain cache
-    #@robot.brain.data.snoop = @cache
+    @savedSnoops = []
+    @updateBrain @savedSnoops
   
   # Updates the robot brain. BRAAAAINS!
-  updateBrain: (cache) ->
-    @robot.brain.set 'snoop', cache
+  updateBrain: (snoops) ->
+    @robot.brain.set 'snoop', snoops
     return
 
 module.exports = (robot) ->
@@ -97,10 +87,10 @@ module.exports = (robot) ->
   robot.respond /show snoops/i, (msg) ->
     response = "\n"
     
-    if snoop.all.length == 0
+    if snoop.savedSnoops.length == 0
       response += "I'm not snooping on anything!"
     else
-      for task in snoop.all()
+      for task in snoop.savedSnoops
         response += "#{task.key} -> #{task.task}\n"
     
     msg.send response
@@ -121,7 +111,7 @@ module.exports = (robot) ->
     robotHeard = msg.match[1]
 
     # Grab what we know...
-    tasks = snoop.all()
+    tasks = snoop.savedSnoops
     
     # Sort what we know...
     tasks.sort (a,b) ->
