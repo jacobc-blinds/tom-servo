@@ -30,7 +30,7 @@ class Snoop
     
     # When the brain loads, grab our cached data...
     @robot.brain.on 'loaded', =>
-      if @robot.brain.data.Snoop
+      if @robot.brain.data.snoop
         @cache = @robot.brain.get('snoop')
         #@cache = @robot.brain.data.snoop
   
