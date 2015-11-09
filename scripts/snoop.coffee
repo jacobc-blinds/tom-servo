@@ -97,8 +97,11 @@ module.exports = (robot) ->
   robot.respond /show snoops/i, (msg) ->
     response = "\n"
     
-    for task in snoop.all()
-      response += "#{task.key} -> #{task.task}\n"
+    if snoop.all.length == 0
+      response += "I'm not snooping on anything!"
+    else
+      for task in snoop.all()
+        response += "#{task.key} -> #{task.task}\n"
     
     msg.send response
   
