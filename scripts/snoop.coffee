@@ -30,13 +30,15 @@ class Snoop
     # When the brain loads, grab our cached data...
     @robot.brain.on 'loaded', =>
       if @robot.brain.data.Snoop
-        @cache = @robot.brain.data.snoop
+        @cache = @robot.brain.get('snoop')
+        #@cache = @robot.brain.data.snoop
   
   # Adds a new snoop.
   add: (pattern, action, order) ->
     task = {key: pattern, task: action, order: order}
     @cache.push task
-    @robot.brain.data.snoop = @cache
+    updateBrain cache
+    #@robot.brain.data.snoop = @cache
   
   # Gets all the snoops. ALL THE SNOOPS!
   all: -> @cache
@@ -44,12 +46,19 @@ class Snoop
   # Deletes a snoop based on a pattern.
   deleteByPattern: (pattern) ->
     @cache = @cache.filter (n) -> n.key != pattern
-    @robot.brain.data.snoop = @cache
+    updateBrain cache
+    #@robot.brain.data.snoop = @cache
   
   # Deletes all the snoops. You bastard!
   deleteAll: () ->
     @cache = []
-    @robot.brain.data.snoop = @cache
+    updateBrain cache
+    #@robot.brain.data.snoop = @cache
+  
+  # Updates the robot brain. BRAAAAINS!
+  updateBrain: (cache) ->
+    @robot.brain.set 'snoop', cache
+    return
 
 module.exports = (robot) ->
   
