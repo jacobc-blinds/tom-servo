@@ -61,7 +61,7 @@ class Snoop
   # Processes messages.
   processMessage: (msg) ->
     
-    console.log "Snoop is processing #{msg}"
+    console.log "Snoop is processing #{msg} which is #{msg.toJson}."
     
     # Grab what we heard...
     robotHeard = msg.match[1]
