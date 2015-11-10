@@ -61,13 +61,12 @@ class Snoop
   # Processes messages.
   processMessage: (msg) ->
     
-    # for key, value of msg
-    #   console.log "#{key}: #{value}"
-    
-    console.log "Snoop is processing #{msg.message.text} which is #{typeof msg}."
+    console.log "Snoop is processing #{msg.message.text}."
     
     # Grab what we heard...
     robotHeard = msg.match[1]
+    
+    console.log "Snoop matched on #{robotHeard}"
 
     # Grab what we know...
     tasks = @savedSnoops

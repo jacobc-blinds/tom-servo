@@ -65,21 +65,21 @@ downImages = [
 module.exports = (robot) ->
   
   # The catchall
-  robot.catchAll (msg) ->
-    console.log 'Catch all caught #{msg.message.text}'
-    r = new RegExp "^(?:#{robot.alias}|#{robot.name}) (.*)", "i"
-    
-    matches = msg.message.text.match(r)
-    
-    if matches != null && matches.length > 1
-      console.log 'Performing a Wolfram Alpha query...'
-      Wolfram.query matches[1], (e, result) ->
-        if result and result.length > 0
-          msg.send result[1]['subpods'][0]['text']
-        else
-          msg.send 'Beats me!'
-
-    msg.finish()
+#   robot.catchAll (msg) ->
+#     console.log 'Catch all caught #{msg.message.text}'
+#     r = new RegExp "^(?:#{robot.alias}|#{robot.name}) (.*)", "i"
+#     
+#     matches = msg.message.text.match(r)
+#     
+#     if matches != null && matches.length > 1
+#       console.log 'Performing a Wolfram Alpha query...'
+#       Wolfram.query matches[1], (e, result) ->
+#         if result and result.length > 0
+#           msg.send result[1]['subpods'][0]['text']
+#         else
+#           msg.send 'Beats me!'
+# 
+#     msg.finish()
 
   # Person enters
   robot.enter (res) ->
