@@ -61,7 +61,7 @@ class Snoop
   # Processes messages.
   processMessage: (msg) ->
     
-    console.log "Snoop is processing #{msg} which is #{msg.toJson}."
+    console.log "Snoop is processing #{msg.message.text} which is #{typeof msg}."
     
     # Grab what we heard...
     robotHeard = msg.match[1]
@@ -125,7 +125,7 @@ module.exports = (robot) ->
   snoop = new Snoop robot
   
   # Wire up to process bot messages...
-  robot.listeners.push new SlackBotListener(robot, /[\s\S]*/i, (msg) -> snoop.processMessage msg)
+  robot.listeners.push new SlackBotListener(robot, /[\s\S]*/i, (msg) -> snoop.processMessage msg.message.text)
 
   # hubot when you hear <pattern> do <something hubot does>
   robot.respond /when you hear (.+?) do (.+?)$/i, (msg) ->    
