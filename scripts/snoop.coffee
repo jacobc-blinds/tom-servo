@@ -125,7 +125,7 @@ module.exports = (robot) ->
   snoop = new Snoop robot
   
   # Wire up to process bot messages...
-  robot.listeners.push new SlackBotListener(robot, /[\s\S]*/i, (msg) -> snoop.processMessage msg.message.text)
+  robot.listeners.push new SlackBotListener(robot, /[\s\S]*/i, (msg) -> snoop.processMessage msg.toString())
 
   # hubot when you hear <pattern> do <something hubot does>
   robot.respond /when you hear (.+?) do (.+?)$/i, (msg) ->    
