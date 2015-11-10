@@ -5,13 +5,16 @@
   "author": "Greg Major <greg.b.major@gmail.com>",
   "description": "A humble and helpful robot",
   "dependencies": {
+    "cheerio": "*",
     "hubot": "^2.13.2",
+    "hubot-codinglove": "*",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.1.5",
     "hubot-google-translate": "^0.2.0",
     "hubot-help": "^0.1.1",
     "hubot-heroku-keepalive": "0.0.4",
     "hubot-maps": "0.0.2",
+    "hubot-plusplus": "*",
     "hubot-pugme": "^0.1.0",
     "hubot-redis-brain": "0.0.3",
     "hubot-rules": "^0.1.1",
@@ -19,11 +22,9 @@
     "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.3.0",
     "hubot-standup-alarm": "*",
-    "scraper": "0.0.9",
     "hubot-tell": "*",
-    "hubot-plusplus": "*",
-    "hubot-codinglove": "*",
-    "cheerio": "*"
+    "scraper": "0.0.9",
+    "wolfram-alpha": "^0.2.1"
   },
   "engines": {
     "node": "0.10.x"

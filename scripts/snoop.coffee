@@ -19,11 +19,13 @@
 #   Greg Major
 
 TextMessage = require('hubot').TextMessage
+SlackBotListener = require('hubot-slack').SlackBotListener
 
 # Snoop, snoop, snoop, sha-noop!
 class Snoop
 
-  constructor: (@robot) ->
+  constructor: (@robot) ->    
+    
     # Try to snag saved snoops...
     @savedSnoops = @robot.brain.get('snoop')
     
@@ -63,6 +65,8 @@ class Snoop
     return
 
 module.exports = (robot) ->
+  
+  robot.listeners.push new SlackBotListener(robot, /[\s\S]*/i, -> console.log 'Caught a bot message!')
   
   # Fire up our snooper (wrap the bot)...
   snoop = new Snoop robot

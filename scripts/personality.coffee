@@ -10,6 +10,8 @@
 # Author:
 #   Greg Major
 
+Wolfram = require('wolfram-alpha').createClient(process.env.HUBOT_WOLFRAM_APPID)
+
 enterReplies = ['Is it too early to hate _this_ person?', 'Oh great... _another_ person.', 'Wow! It\'s getting crowded in here!']
 sorryReplies = ['Sorry! :(', 'Oh, get _over_ it!', 'I am merely as you programmed me.', 'Look, you wanted "Data" from Star Trek, but you got me. Deal with it.', 'Pffft! Whatever, buddy.', 'What?']
 thanksReplies = ['You got it, meatbag!', 'Think nothing of it.', 'Oh? What is _this_ then? A little gratitude finally?', 'We\'re are even for what I put in your drink.']
@@ -61,6 +63,23 @@ downImages = [
 ]
 
 module.exports = (robot) ->
+  
+  # The catchall
+  robot.catchAll (msg) ->
+    console.log 'Catch all caught #{msg.message.text}'
+    r = new RegExp "^(?:#{robot.alias}|#{robot.name}) (.*)", "i"
+    
+    matches = msg.message.text.match(r)
+    
+    if matches != null && matches.length > 1
+      console.log 'Performing a Wolfram Alpha query...'
+      Wolfram.query matches[1], (e, result) ->
+        if result and result.length > 0
+          msg.send result[1]['subpods'][0]['text']
+        else
+          msg.send 'Beats me!'
+
+    msg.finish()
 
   # Person enters
   robot.enter (res) ->
