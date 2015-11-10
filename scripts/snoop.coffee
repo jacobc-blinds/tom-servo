@@ -61,7 +61,7 @@ class Snoop
   # Processes messages.
   processMessage: (msg) ->
     
-    for key, value of obj
+    for key, value of msg
       console.log "#{key}: #{value}"
     
     console.log "Snoop is processing #{msg.message.text} which is #{typeof msg}."
