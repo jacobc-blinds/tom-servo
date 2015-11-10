@@ -59,18 +59,10 @@ class Snoop
     @updateBrain @savedSnoops
   
   # Processes messages.
-  processMessage: (msg) ->
+  processMessage: (msg, messageText) ->
     
-    for key, value of msg
-      console.log "#{key}: #{value}"
+    console.log "Snoop is processing #{messageText}."
     
-    console.log "Snoop is processing #{msg.message.text}."
-    
-    # Grab what we heard...
-    robotHeard = msg.match[1]
-    
-    console.log "Snoop matched on #{robotHeard}"
-
     # Grab what we know...
     tasks = @savedSnoops
     
@@ -86,7 +78,7 @@ class Snoop
     
     # Now grab every task that matches our key...
     for task in tasks
-      if new RegExp(task.key, "i").test(robotHeard)
+      if new RegExp(task.key, "i").test(messageText)
         tasksToRun.push task
 
     # Now sort 'em so they play in the requested order...
@@ -130,10 +122,10 @@ module.exports = (robot) ->
   snoop = new Snoop robot
   
   # Wire up to process bot messages...
-  robot.listeners.push new SlackBotListener(robot, /[\s\S]*/i, (msg) -> snoop.processMessage msg)
+  robot.listeners.push new SlackBotListener(robot, /[\s\S]*/i, (msg) -> snoop.processMessage(msg, msg.message.text))
 
   # hubot when you hear <pattern> do <something hubot does>
-  robot.respond /when you hear (.+?) do (.+?)$/i, (msg) ->    
+  robot.respond /when you hear (.+?) do (.+?)$/i, (msg) ->
     
     key = msg.match[1]
     
@@ -182,5 +174,5 @@ module.exports = (robot) ->
 
   # Listen to, well... everything pretty much.
   robot.hear /(.+)/i, (msg) ->
-    snoop.processMessage msg
+    snoop.processMessage(msg, msg.message.text)
     
