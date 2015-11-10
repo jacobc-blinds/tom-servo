@@ -89,7 +89,7 @@ class Snoop
     for task in tasksToRun
       
       # If the message didn't come from our robot then...
-      if (robot.name != msg.message.user.name && !(new RegExp("^#{robot.name}", "i").test(robotHeard)))
+      if (robot.name != msg.message.user.name && !(new RegExp("^#{robot.name}", "i").test(messageText)))
         
         # If we're supposed to parrot what we heard then...
         if (/parrot to/i.test(task.task))
@@ -102,7 +102,7 @@ class Snoop
           channel = taskmatch[1]
           
           # Now fire it off...
-          try robot.send room: "#{channel}", "Psst! I heard...\n#{robotHeard}"
+          try robot.send room: "#{channel}", "Psst! I heard...\n#{messageText}"
           catch ex then console.log "Crud! #{ex}."
         
         else
