@@ -58,6 +58,59 @@ class Snoop
     @savedSnoops = []
     @updateBrain @savedSnoops
   
+  # Processes messages.
+  processMessage: (msg) ->
+    
+    # Grab what we heard...
+    robotHeard = msg.match[1]
+
+    # Grab what we know...
+    tasks = @savedSnoops
+    
+    if !@savedSnoops
+      return
+    
+    # Sort what we know...
+    tasks.sort (a,b) ->
+      return if a.order >= b.order then 1 else -1
+
+    # Start with an empty set of tasks...
+    tasksToRun = []
+    
+    # Now grab every task that matches our key...
+    for task in tasks
+      if new RegExp(task.key, "i").test(robotHeard)
+        tasksToRun.push task
+
+    # Now sort 'em so they play in the requested order...
+    tasksToRun.sort (a,b) ->
+      return if a.order >= b.order then 1 else -1
+
+    # Boom-shaka-lakka...
+    for task in tasksToRun
+      
+      # If the message didn't come from our robot then...
+      if (robot.name != msg.message.user.name && !(new RegExp("^#{robot.name}", "i").test(robotHeard)))
+        
+        # If we're supposed to parrot what we heard then...
+        if (/parrot to/i.test(task.task))
+          
+          # Snag the channel name...
+          parrotPattern = /parrot to (.+?)$/i
+          
+          taskmatch = parrotPattern.exec (task.task)
+          
+          channel = taskmatch[1]
+          
+          # Now fire it off...
+          try robot.send room: "#{channel}", "Psst! I heard...\n#{robotHeard}"
+          catch ex then console.log "Crud! #{ex}."
+        
+        else
+          
+          # Tell our robot to do something...
+          robot.receive new TextMessage(msg.message.user, "#{robot.name}: #{task.task}")
+  
   # Updates the robot brain. BRAAAAINS!
   updateBrain: (snoops) ->
     console.log "Putting #{snoops} in my memory banks..."
@@ -66,10 +119,11 @@ class Snoop
 
 module.exports = (robot) ->
   
-  robot.listeners.push new SlackBotListener(robot, /[\s\S]*/i, -> console.log 'Caught a bot message!')
-  
   # Fire up our snooper (wrap the bot)...
   snoop = new Snoop robot
+  
+  # Wire up to process bot messages...
+  robot.listeners.push new SlackBotListener(robot, /[\s\S]*/i, (msg) -> snoop.processMessage msg)
 
   # hubot when you hear <pattern> do <something hubot does>
   robot.respond /when you hear (.+?) do (.+?)$/i, (msg) ->    
@@ -121,53 +175,5 @@ module.exports = (robot) ->
 
   # Listen to, well... everything pretty much.
   robot.hear /(.+)/i, (msg) ->
+    snoop.processMessage msg
     
-    # Grab what we heard...
-    robotHeard = msg.match[1]
-
-    # Grab what we know...
-    tasks = snoop.savedSnoops
-    
-    if !snoop.savedSnoops
-      return
-    
-    # Sort what we know...
-    tasks.sort (a,b) ->
-      return if a.order >= b.order then 1 else -1
-
-    # Start with an empty set of tasks...
-    tasksToRun = []
-    
-    # Now grab every task that matches our key...
-    for task in tasks
-      if new RegExp(task.key, "i").test(robotHeard)
-        tasksToRun.push task
-
-    # Now sort 'em so they play in the requested order...
-    tasksToRun.sort (a,b) ->
-      return if a.order >= b.order then 1 else -1
-
-    # Boom-shaka-lakka...
-    for task in tasksToRun
-      
-      # If the message didn't come from our robot then...
-      if (robot.name != msg.message.user.name && !(new RegExp("^#{robot.name}", "i").test(robotHeard)))
-        
-        # If we're supposed to parrot what we heard then...
-        if (/parrot to/i.test(task.task))
-          
-          # Snag the channel name...
-          parrotPattern = /parrot to (.+?)$/i
-          
-          taskmatch = parrotPattern.exec (task.task)
-          
-          channel = taskmatch[1]
-          
-          # Now fire it off...
-          try robot.send room: "#{channel}", "Psst! I heard...\n#{robotHeard}"
-          catch ex then console.log "Crud! #{ex}."
-        
-        else
-          
-          # Tell our robot to do something...
-          robot.receive new TextMessage(msg.message.user, "#{robot.name}: #{task.task}")
