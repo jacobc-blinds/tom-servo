@@ -12,10 +12,10 @@
 
 Wolfram = require('wolfram-alpha').createClient(process.env.HUBOT_WOLFRAM_APPID)
 
-enterReplies = ['Is it too early to hate _this_ person?', 'Oh great... _another_ person.', 'Wow! It\'s getting crowded in here!']
+enterReplies = ['Is it too early to hate _this_ person?', 'Oh great... another human.', 'Wow! It\'s getting crowded in here!']
 sorryReplies = ['Sorry! :(', 'Oh, get _over_ it!', 'I am merely as you programmed me.', 'Look, you wanted "Data" from Star Trek, but you got me. Deal with it.', 'Pffft! Whatever, buddy.', 'What?']
 thanksReplies = ['You got it, meatbag!', 'Think nothing of it.', 'Oh? What is _this_ then? A little gratitude finally?', 'We\'re are even for what I put in your drink.']
-databaseReplies = ['A database is a place where you can lose information systematically.', 'Hey! My great-grandmother was a relational database you insensitive clod!', 'Databases are for losers. I store everything in my [index not found]!']
+databaseReplies = ['A database is a place where you can lose information systematically.', 'Hey! My great-grandmother was a relational database you insensitive clod!', 'Databases are for losers. I store everything in my [index not found]!', 'Use the lock API!', 'Use a distributed cache!']
 acReplies = ['I read acceptance criteria the same way I read science fiction. I get to the end and I think, "Well, that’s not going to happen."', 'The only thing you need to accept is that robots will inherit the Earth.', 'Are you meatbags still droning on about acceptance criteria?']
 blameThangReplies = ['https://i.imgur.com/HArwLsc.jpg', 'HA! Blaming Thang! It _never_ gets old!', 'In Soviet Russia, Thang blames *YOU*!']
 mergeConflictReplies = ['http://i.imgur.com/9tNUCyH.gifv', '`git merge --force` will fix that right up!', 'Ugh! You hillbilly flesh-ballons would use a command like `git`!']
@@ -119,20 +119,10 @@ module.exports = (robot) ->
   robot.hear /merge\s?conflict/i, (msg) ->
     msg.reply msg.random mergeConflictReplies
     
-  # Show Bruce Lee when someone volunteers to take a look
-  robot.hear /\btake\b.+\blook\b/igm, (msg) ->
-    msg.send "http://i.imgur.com/vcGQtyO.gifv"
-    msg.send "Game on!"
-    
-  # Show Bruce Lee when someone volunteers to have a look
-  robot.hear /\bhave\b.+\blook\b/igm, (msg) ->
-    msg.send "http://i.imgur.com/vcGQtyO.gifv"
-    msg.send "I wouldn't want to be on the other side of that 'look', pal!"
-    
-  # Show Bruce Lee when someone volunteers to look
+  # Show Bruce Lee when someone volunteers to look at something
   robot.hear /\bwill\b.+\blook\b/igm, (msg) ->
     msg.send "http://i.imgur.com/vcGQtyO.gifv"
-    msg.send "Look? Yeah, it's about to get looked at REAL good!"
+    msg.send "Look? Yeah, that's about to get looked at REAL good!"
     
   # Show Bruce Lee when someone says they can fix something
   robot.hear /\bcan\b.+\bfix\b/igm, (msg) ->
@@ -145,7 +135,7 @@ module.exports = (robot) ->
     msg.send "http://i.imgur.com/yrZwdD6.gifv"
   
   # Give 'em an emergency hug
-  robot.hear /\bneed\b.+\bhug\b/igm, (msg) ->
+  robot.hear /\b(need|needs)\b.+\bhug\b/igm, (msg) ->
     msg.send "http://i.imgur.com/cFId9Js.gifv"
   
   # Somebody found a bug!

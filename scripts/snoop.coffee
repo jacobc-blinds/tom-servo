@@ -61,13 +61,12 @@ class Snoop
   # Processes messages.
   processMessage: (msg, messageText) ->
     
-    console.log "Snoop is processing #{messageText}."
-    
-    # Grab what we know...
-    tasks = @savedSnoops
-    
+    # If there aren't any saves snoops then don't bother...
     if !@savedSnoops
       return
+
+    # Grab what we know...
+    tasks = @savedSnoops    
     
     # Sort what we know...
     tasks.sort (a,b) ->
