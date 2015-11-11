@@ -142,10 +142,10 @@ module.exports = (robot) ->
   robot.hear /\bfound\b.+\bbug\b/igm, (msg) ->
     msg.reply "http://i.imgur.com/7cyL3Mg.gifv"
   
-  # Somebody invoked Wade's name
-  robot.hear /wade/i, (msg) ->
-    msg.send "http://i.imgur.com/zKIkl2a.gifv"
-    msg.reply "Seriously, do you guys make _ANY_ decision without bothering Wade?"
+  # # Somebody invoked Wade's name
+  # robot.hear /wade/i, (msg) ->
+  #   msg.send "http://i.imgur.com/zKIkl2a.gifv"
+  #   msg.reply "Seriously, do you guys make _ANY_ decision without bothering Wade?"
     
   # Somebody tried to blame it on a race condition
   robot.hear /race\s?condition/i, (msg) ->
