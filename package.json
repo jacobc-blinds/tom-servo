@@ -24,6 +24,9 @@
     "hubot-standup-alarm": "*",
     "hubot-tell": "*",
     "scraper": "0.0.9",
+    "q": "*",
+    "util": "*",
+    "underscore": "*",
     "wolfram-alpha": "^0.2.1"
   },
   "engines": {
