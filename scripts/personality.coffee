@@ -124,6 +124,15 @@ module.exports = (robot) ->
     msg.send "http://i.imgur.com/vcGQtyO.gifv"
     msg.send "Look? Yeah, that's about to get looked at REAL good!"
     
+  # Show dos equis man when someone mentions production or prod
+  robot.hear /\b(prod|production)\b/igm, (msg) ->
+    msg.send "http://i.imgur.com/jHWJLpm.png"
+    msg.send "I don't always test my code but when I do I do it in production!"
+    
+  # smart @$$ comment when someone mentions lead pipe
+  robot.hear /\b(lead\spipe)\b/igm, (msg) ->
+    msg.send "You really should switch to PVC or copper pipes. Lead is poisonous Duh!"
+    
   # Show Bruce Lee when someone says they can fix something
   robot.hear /\bcan\b.+\bfix\b/igm, (msg) ->
     msg.send "http://i.imgur.com/vcGQtyO.gifv"
