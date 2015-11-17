@@ -5,6 +5,7 @@
   "author": "Greg Major <greg.b.major@gmail.com>",
   "description": "A humble and helpful robot",
   "dependencies": {
+    "ascii-art": "0.0.2-alpha",
     "cheerio": "*",
     "hubot": "^2.13.2",
     "hubot-codinglove": "*",
@@ -23,10 +24,10 @@
     "hubot-slack": "^3.3.0",
     "hubot-standup-alarm": "*",
     "hubot-tell": "*",
-    "scraper": "0.0.9",
     "q": "*",
-    "util": "*",
+    "scraper": "0.0.9",
     "underscore": "*",
+    "util": "*",
     "wolfram-alpha": "^0.2.1"
   },
   "engines": {
