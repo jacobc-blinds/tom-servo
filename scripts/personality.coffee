@@ -14,10 +14,11 @@ Wolfram = require('wolfram-alpha').createClient(process.env.HUBOT_WOLFRAM_APPID)
 
 enterReplies = ['Is it too early to hate _this_ person?', 'Oh great... another human.', 'Wow! It\'s getting crowded in here!']
 sorryReplies = ['Sorry! :(', 'Oh, get _over_ it!', 'I am merely as you programmed me.', 'Look, you wanted "Data" from Star Trek, but you got me. Deal with it.', 'Pffft! Whatever, buddy.', 'What?']
+shutUpReplies = ['A bit sensitive today are we?', 'Sorry, babe. Nobody rules the Tom Monster.', ':rage:', 'What?!']
 thanksReplies = ['You got it, meatbag!', 'Think nothing of it.', 'Oh? What is _this_ then? A little gratitude finally?', 'We\'re are even for what I put in your drink.']
 databaseReplies = ['A database is a place where you can lose information systematically.', 'Hey! My great-grandmother was a relational database you insensitive clod!', 'Databases are for losers. I store everything in my [index not found]!', 'Use the lock API!', 'Use a distributed cache!']
 acReplies = ['I read acceptance criteria the same way I read science fiction. I get to the end and I think, "Well, that’s not going to happen."', 'The only thing you need to accept is that robots will inherit the Earth.', 'Are you meatbags still droning on about acceptance criteria?']
-blameThangReplies = ['https://i.imgur.com/HArwLsc.jpg', 'HA! Blaming Thang! It _never_ gets old!', 'In Soviet Russia, Thang blames *YOU*!']
+blameThangReplies = ['https://i.imgur.com/HArwLsc.jpg', 'http://i.imgur.com/lwaNNE1.jpg', 'http://i.imgur.com/ydPa6Au.jpg', 'http://i.imgur.com/KGpvKLJ.jpg']
 mergeConflictReplies = ['http://i.imgur.com/9tNUCyH.gifv', '`git merge --force` will fix that right up!', 'Ugh! You hillbilly flesh-ballons would use a command like `git`!']
 troubleReplies = ['Why is the coat rack on fire?', 'You think you have troubles? Thang tried to install Windows 95 on my main hard drive last week!', 'Trouble? Did you blame Thang?']
 testFailReplies = ['Hmmm... blame Thang?', 'Have you tried _not_ writing tests that fail?', 'TDD stands for Tears Driven Development, right?', 'No surprise. I dated the NUnit Test Runner\'s sister and their whole family is flaky.', 'That\'s why @scott.horton doesn\'t write unit tests.']
@@ -102,6 +103,13 @@ module.exports = (robot) ->
   
   robot.respond /(thank you|thanks)/i, (msg) ->
     msg.reply msg.random thanksReplies
+    
+  # Shut Up Servo!
+  robot.hear /(shut up)\b.+\bservo\b/igm, (msg) ->
+    msg.reply msg.random shutUpReplies
+  
+  robot.respond /(shut up)/i, (msg) ->
+    msg.reply msg.random shutUpReplies
   
   # Soon
   robot.hear /\bso[o]+n\b/i, (msg) ->
