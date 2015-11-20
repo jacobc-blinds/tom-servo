@@ -5,8 +5,8 @@
   "author": "Greg Major <greg.b.major@gmail.com>",
   "description": "A humble and helpful robot",
   "dependencies": {
-    "ascii-art": "0.0.2-alpha",
     "cheerio": "*",
+    "figlet": "^1.1.1",
     "hubot": "^2.13.2",
     "hubot-codinglove": "*",
     "hubot-diagnostics": "0.0.1",
