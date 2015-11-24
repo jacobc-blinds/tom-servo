@@ -22,9 +22,16 @@ explodingKittenimages = [
   "https://cf.geekdo-images.com/images/pic2691976.png"
 ]
 
+kingOfTokyoImages = [
+  "http://www.iellogames.com/images/KingOfTokyo_3Dbox.jpg"
+]
+
 module.exports = (robot) ->
   robot.hear /munchkin/i, (msg) ->
     msg.send msg.random munchkinImages 
 
   robot.hear /exploding.*kitten/i, (msg) ->
     msg.send msg.random explodingKittenimages 
+
+  robot.hear /king.*of.*tokyo/i, (msg) ->
+    msg.send msg.random kingOfTokyoImages 
