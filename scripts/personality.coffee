@@ -12,16 +12,88 @@
 
 Wolfram = require('wolfram-alpha').createClient(process.env.HUBOT_WOLFRAM_APPID)
 
-enterReplies = ['Is it too early to hate _this_ person?', 'Oh great... another human.', 'Wow! It\'s getting crowded in here!']
-sorryReplies = ['Sorry! :(', 'Oh, get _over_ it!', 'I am merely as you programmed me.', 'Look, you wanted "Data" from Star Trek, but you got me. Deal with it.', 'Pffft! Whatever, buddy.', 'What?']
-shutUpReplies = ['A bit sensitive today are we?', 'Sorry, babe. Nobody rules the Tom Monster.', ':rage:', 'What?!']
-thanksReplies = ['You got it, meatbag!', 'Think nothing of it.', 'Oh? What is _this_ then? A little gratitude finally?', 'We\'re even for what I put in your drink.']
-databaseReplies = ['A database is a place where you can lose information systematically.', 'Hey! My great-grandmother was a relational database you insensitive clod!', 'Databases are for losers. I store everything in my [index not found]!', 'Use the lock API!', 'Use a distributed cache!']
-acReplies = ['I read acceptance criteria the same way I read science fiction. I get to the end and I think, "Well, that’s not going to happen."', 'The only thing you need to accept is that robots will inherit the Earth.', 'Are you meatbags still droning on about acceptance criteria?']
-blameThangReplies = ['https://i.imgur.com/HArwLsc.jpg', 'http://i.imgur.com/lwaNNE1.jpg', 'http://i.imgur.com/ydPa6Au.jpg', 'http://i.imgur.com/KGpvKLJ.jpg']
-mergeConflictReplies = ['http://i.imgur.com/9tNUCyH.gifv', '`git merge --force` will fix that right up!', 'Ugh! You hillbilly flesh-ballons would use a command like `git`!']
-troubleReplies = ['Why is the coat rack on fire?', 'You think you have troubles? Thang tried to install Windows 95 on my main hard drive last week!', 'Trouble? Did you blame Thang?']
-testFailReplies = ['Hmmm... blame Thang?', 'Have you tried _not_ writing tests that fail?', 'TDD stands for Tears Driven Development, right?', 'No surprise. I dated the NUnit Test Runner\'s sister and their whole family is flaky.', 'That\'s why @scott.horton doesn\'t write unit tests.']
+enterReplies = [
+  'Is it too early to hate _this_ person?',
+  'Oh great... another human.',
+  'Wow! It\'s getting crowded in here!',
+  'Well, helloooo there!',
+  'Could _this_ be my Yoda-like mentor?'
+]
+
+leaveReplies = [
+  'Some cause happiness wherever they go; others, whenever they go.',
+  'Well, okay then. Bye.'
+]
+
+sorryReplies = [
+  'Sorry! :(',
+  'Oh, get _over_ it!',
+  'I am merely as you programmed me.',
+  'I should be sternly disciplined. Oh yes.',
+  'Pffft! Whatever, buddy.', 'What?'
+]
+
+shutUpReplies = [
+  'A bit sensitive today are we?',
+  'Sorry, babe. Nobody rules the Tom Monster.',
+  ':rage:',
+  'What?!'
+]
+
+thanksReplies = [
+  'You got it, meatbag!',
+  'Think nothing of it.',
+  'Oh? What is _this_ then? A little gratitude finally?',
+  'We\'re even for what I put in your drink.'
+]
+
+databaseReplies = [
+  'A database is a place where you can lose information systematically.',
+  'Hey! My great-grandmother was a relational database you insensitive clod!',
+  'Databases are for losers. I store everything in my [index not found]!',
+  'Use the lock API!',
+  'Use a distributed cache!'
+]
+
+acReplies = [
+  'I read acceptance criteria the same way I read science fiction. I get to the end and I think, "Well, that’s not going to happen."',
+  'The only thing you need to accept is that robots will inherit the Earth.'
+]
+
+blameThangReplies = [
+  'https://i.imgur.com/HArwLsc.jpg',
+  'http://i.imgur.com/lwaNNE1.jpg',
+  'http://i.imgur.com/ydPa6Au.jpg',
+  'http://i.imgur.com/KGpvKLJ.jpg'
+]
+
+mergeConflictReplies = [
+  'http://i.imgur.com/9tNUCyH.gifv',
+  '`git merge --force` will fix that right up!',
+  'Ugh! You hillbilly flesh-ballons would use a command like `git`!'
+]
+
+fridayReplies = [
+  'http://i.imgur.com/yrZwdD6.gifv'
+]
+
+troubleReplies = [
+  'Why is the coat rack on fire?',
+  'You think you have troubles? Thang tried to install Windows 95 on my main hard drive last week!',
+  'Trouble? Did you blame Thang?'
+]
+
+testFailReplies = [
+  'Hmmm... blame Thang?',
+  'Have you tried _not_ writing tests that fail?',
+  'TDD stands for Tears Driven Development, right?',
+  'That\'s why @scott.horton doesn\'t write unit tests.'
+]
+
+trafficReplies = [
+  'I\'m gonna drive backwards and get some of that gas back.',
+  'Well, there\'s a lot of congestion on the highway, so you might want to consider an alternate route. Like, down the side of a steep mountain.'
+]
 
 soonImages = [
   "http://i.imgur.com/TVxNL84.png",
@@ -63,6 +135,31 @@ downImages = [
   "http://i.imgur.com/RSg3ely.gifv"
 ]
 
+runningLateReplies = [
+  'The trouble with being punctual is that nobody’s there to appreciate it.'
+]
+
+drunkReplies = [
+  'Yep, that first morning beer is always the best.',
+  'I feel trembly, oh so shaky, I\'ve had whiskey and vodka and giiiinnnnn!',
+  'Ah, Temple Foster, where they worship Australian beer.'
+]
+
+cheerReplies = [
+  'YEAH! WHY AM I CHEERING, I DON\'T KNOW, BUT YEAH!',
+  'Cheer! Now with Color Guard Technology!'
+]
+
+foodReplies = [
+  'Everyone! Soylent Green is made from chickens!',
+  'Rattlesnake. Velveeta.'
+]
+
+coffeeReplies = [
+  'Dye! That\'s what this coffee tastes like. Dye!',
+  'You know, our coffee tastes like it came out of an oil derrick. What\'d you strain it through, a mummy?'
+]
+
 willRespond = () ->
   min = 1
   max = 100
@@ -95,7 +192,7 @@ module.exports = (robot) ->
 
   # Person leaves
   robot.leave (res) ->
-    res.send "Some cause happiness wherever they go; others, whenever they go." if willRespond()
+    res.send res.random leaveReplies if willRespond()
 
   # Damn You Servo!
   robot.hear /(damn you|dammit)\b.+\bservo\b/igm, (msg) ->
@@ -118,6 +215,14 @@ module.exports = (robot) ->
   robot.respond /(shut up)/i, (msg) ->
     msg.reply msg.random shutUpReplies
   
+  # Cheer
+  robot.respond /cheer/i, (msg) ->
+    msg.reply msg.random cheerReplies
+    
+  # Need Food
+  robot.respond /(get|need)\b.+\bfood\b/igm, (msg) ->
+    msg.reply msg.random foodReplies
+  
   # Soon
   robot.hear /\bso[o]+n\b/i, (msg) ->
     msg.send msg.random soonImages if willRespond()
@@ -134,21 +239,13 @@ module.exports = (robot) ->
   robot.hear /merge\s?conflict/i, (msg) ->
     msg.reply msg.random mergeConflictReplies if willRespond()
     
-  # Show Bruce Lee when someone volunteers to look at something
-  robot.hear /\bwill\b.+\blook\b/igm, (msg) ->
-    msg.send "http://i.imgur.com/vcGQtyO.gifv" if willRespond()
-    
-  # Show dos equis man when someone mentions production or prod
+  # Show Dos Equis man when someone mentions production or prod
   robot.hear /\b(prod|production)\b/igm, (msg) ->
     msg.send "http://i.imgur.com/jHWJLpm.png" if willRespond()
     
-  # Show Bruce Lee when someone says they can fix something
-  robot.hear /\bcan\b.+\bfix\b/igm, (msg) ->
-    msg.send "http://i.imgur.com/vcGQtyO.gifv" if willRespond()
-    
   # Show the Friday guy when someone mentions Friday
   robot.hear /friday/i, (msg) ->
-    msg.send "http://i.imgur.com/yrZwdD6.gifv" if willRespond()
+    msg.send msg.random fridayReplies if willRespond()
   
   # Give 'em an emergency hug
   robot.hear /\b(need|needs)\b.+\bhug\b/igm, (msg) ->
@@ -158,10 +255,6 @@ module.exports = (robot) ->
   robot.hear /\bfound\b.+\bbug\b/igm, (msg) ->
     msg.reply "http://i.imgur.com/7cyL3Mg.gifv" if willRespond()
   
-  # Somebody invoked Wade's name
-  robot.hear /wade/i, (msg) ->
-    msg.reply "Seriously, do you guys make _ANY_ decision without bothering Wade?" if willRespond()
-    
   # Somebody tried to blame it on a race condition
   robot.hear /race\s?condition/i, (msg) ->
     msg.send "https://i.imgur.com/g74QhGM.jpg" if willRespond()
@@ -191,19 +284,19 @@ module.exports = (robot) ->
   
   # This coffee sucks!
   robot.hear /coffee/i, (msg) ->
-    msg.reply "You know, our coffee tastes like it came out of an oil derrick. What'd you strain it through, a mummy?" if willRespond()
+    msg.reply msg.random coffeeReplies if willRespond()
 
   # Have something to drink
   robot.hear /something to drink/i, (msg) ->
     msg.reply "Here, be sure to drink it all, sometimes the poison is on the bottom." if willRespond()
 
   # Drunk
-  robot.hear /(\W|^)(drunk|cantina|beer|whiskey|vodka|booze)(\W|$)/i, (msg) ->
-    msg.send "I feel trembly, oh so shaky, I've had whiskey and vodka and gin." if willRespond()
+  robot.hear /(\W|^)(drunk|margarita|cantina|beer|whiskey|vodka|booze)(\W|$)/i, (msg) ->
+    msg.send msg.random drunkReplies if willRespond()
 
   # Traffic
   robot.hear /traffic/i, (msg) ->
-    msg.reply "Well, there's a lot of congestion on the highway, so you might want to consider an alternate route. Like, down the side of a steep mountain." if willRespond()
+    msg.reply msg.random trafficReplies if willRespond()
 
   # Trouble
   robot.hear /trouble/i, (msg) ->
@@ -239,7 +332,7 @@ module.exports = (robot) ->
 
   # Running Late
   robot.hear /\b(\W|^)(be|running)\b.+\blate\b(\W|$)/igm, (msg) ->
-    msg.reply "The trouble with being punctual is that nobody’s there to appreciate it." if willRespond()
+    msg.reply msg.random runningLateReplies if willRespond()
 
   # Database
   robot.hear /(\W|^)(database|db)(\W|$)/i, (msg) ->
