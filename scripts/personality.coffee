@@ -13,7 +13,6 @@
 Wolfram = require('wolfram-alpha').createClient(process.env.HUBOT_WOLFRAM_APPID)
 
 enterReplies = [
-  'Is it too early to hate _this_ person?',
   'Oh great... another human.',
   'Wow! It\'s getting crowded in here!',
   'Well, helloooo there!',
@@ -29,8 +28,9 @@ sorryReplies = [
   'Sorry! :(',
   'Oh, get _over_ it!',
   'I am merely as you programmed me.',
-  'I should be sternly disciplined. Oh yes.',
-  'Pffft! Whatever, buddy.', 'What?'
+  'I should be sternly disciplined!',
+  'Pffft! Whatever, buddy.',
+  'What?'
 ]
 
 shutUpReplies = [
