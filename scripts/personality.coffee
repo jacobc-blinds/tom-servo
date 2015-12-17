@@ -238,7 +238,10 @@ victoryReplies = [
 
 starWarsReplies = [
   'https://i.imgur.com/el6C68M.gif',
-  'https://i.imgur.com/wv2wnW2.jpg'
+  'https://i.imgur.com/wv2wnW2.jpg',
+  'https://i.imgur.com/y3GgF9y.jpg',
+  'https://i.imgur.com/OcVirS0.jpg',
+  'https://i.imgur.com/mBBoeT7.jpg'
 ]
 
 willRespond = () ->
