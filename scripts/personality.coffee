@@ -27,7 +27,6 @@ leaveReplies = [
 sorryReplies = [
   'Sorry! :(',
   'Oh, get _over_ it!',
-  'I am merely as you programmed me.',
   'I should be sternly disciplined!',
   'Pffft! Whatever, buddy.',
   'What?'
@@ -57,11 +56,12 @@ databaseReplies = [
 
 acReplies = [
   'I read acceptance criteria the same way I read science fiction. I get to the end and I think, "Well, that’s not going to happen."',
-  'The only thing you need to accept is that robots will inherit the Earth.'
+  'The only thing you need to accept is that robots will inherit the Earth.',
+  'Ah yes... acceptance. The final stage of grief.'
 ]
 
 blameThangReplies = [
-  'https://i.imgur.com/HArwLsc.jpg',
+  'http://i.imgur.com/HArwLsc.jpg',
   'http://i.imgur.com/lwaNNE1.jpg',
   'http://i.imgur.com/ydPa6Au.jpg',
   'http://i.imgur.com/KGpvKLJ.jpg'
@@ -70,7 +70,7 @@ blameThangReplies = [
 mergeConflictReplies = [
   'http://i.imgur.com/9tNUCyH.gifv',
   '`git merge --force` will fix that right up!',
-  'Ugh! You hillbilly flesh-ballons would use a command like `git`!'
+  'Ugh! You hillbilly flesh-ballons use _git_?'
 ]
 
 fridayReplies = [
@@ -80,12 +80,14 @@ fridayReplies = [
 troubleReplies = [
   'Why is the coat rack on fire?',
   'You think you have troubles? Thang tried to install Windows 95 on my main hard drive last week!',
-  'Trouble? Did you blame Thang?'
+  'Trouble? Did you blame Thang?',
+  'Did Jason truncate the table again?'
 ]
 
 testFailReplies = [
   'Hmmm... blame Thang?',
   'Have you tried _not_ writing tests that fail?',
+  'I\'ll bet Jason truncated the table again.',
   'TDD stands for Tears Driven Development, right?',
   'That\'s why @scott.horton doesn\'t write unit tests.'
 ]
@@ -160,6 +162,85 @@ coffeeReplies = [
   'You know, our coffee tastes like it came out of an oil derrick. What\'d you strain it through, a mummy?'
 ]
 
+productionReplies = [
+  'http://i.imgur.com/jHWJLpm.png',
+  'Production... where dreams go to die.'
+]
+
+hugReplies = [
+  'http://i.imgur.com/cFId9Js.gifv'
+]
+
+bugReplies = [
+  'http://i.imgur.com/7cyL3Mg.gifv'
+]
+
+raceConditionReplies = [
+  'https://i.imgur.com/g74QhGM.jpg'
+]
+
+badIdeaReplies = [
+  'Oh why don\'t you just shout down every idea I have? How about you call Bruce Springsteen and tell him to get another nickname since you\'re already the Boss! Huh? Yeah? Yeah!'
+]
+
+drinkReplies = [
+  'Here, be sure to drink it all, sometimes the poison is on the bottom.'
+]
+
+theoryReplies = [
+  'The scientific theory I like best is that the rings of Saturn are composed entirely of lost airline luggage.' 
+]
+
+argumentReplies = [
+  'Nothing sucks more than that moment during an argument when you realize you’re wrong.'
+]
+
+skydiveReplies = [
+  'If at first you don’t succeed... so much for skydiving.'
+]
+
+chickenReplies = [
+  'I dream of a better tomorrow, where chickens can cross the road and not be questioned about their motives.'
+]
+
+victoryReplies = [
+  "http://thejointblog.com/wp-content/uploads/2013/04/victory.jpg",
+  "http://www.quickmeme.com/img/ea/ea4671998341d9fbb6f7815394b49cb2890a50ac80b62802fb021c147c068d8e.jpg",
+  "http://cdn-media.hollywood.com/images/l/victory_620_080712.jpg",
+  "http://cf.chucklesnetwork.agj.co/items/5/5/9/6/0/one-does-not-simply-declare-victory-but-i-just-did.jpg",
+  "http://t.qkme.me/3qlspk.jpg",
+  "http://img.pandawhale.com/86036-victory-dance-gif-Despicable-M-EPnS.gif",
+  "http://1.bp.blogspot.com/-rmJLwpPevTg/UOEBgVNiVFI/AAAAAAAAFFY/-At3Z_DzBbw/s1600/dancing+charlie+murphy+animated+gif+victory+dance.gif",
+  "http://www.gifbin.com/bin/20048442yu.gif",
+  "http://www.quickmeme.com/img/30/300ace809c3c2dca48f2f55ca39cbab24693a9bd470867d2eb4e869c645acd42.jpg",
+  "http://jeffatom.files.wordpress.com/2013/09/winston-churchill-says-we-deserve-victory.jpg",
+  "http://i.imgur.com/lmmBt.gif",
+  "http://danceswithfat.files.wordpress.com/2011/08/victory.jpg",
+  "http://stuffpoint.com/family-guy/image/56246-family-guy-victory-is-his.gif",
+  "http://thelavisshow.files.wordpress.com/2012/06/victorya.jpg",
+  "http://alookintomymind.files.wordpress.com/2012/05/victory.jpg",
+  "http://rack.3.mshcdn.com/media/ZgkyMDEzLzA4LzA1L2QwL2JyYWRwaXR0LmJjMmQyLmdpZgpwCXRodW1iCTg1MHg1OTA-CmUJanBn/1a5a0c57/968/brad-pitt.jpg",
+  "http://rack.0.mshcdn.com/media/ZgkyMDEzLzA4LzA1L2ViL2hpZ2hzY2hvb2xtLjI4YjJhLmdpZgpwCXRodW1iCTg1MHg1OTA-CmUJanBn/4755556e/b82/high-school-musical-victory.jpg",
+  "http://rack.2.mshcdn.com/media/ZgkyMDEzLzA4LzA1L2ZkL25hcG9sZW9uZHluLjBiMTFlLmdpZgpwCXRodW1iCTg1MHg1OTA-CmUJanBn/8767246f/d7a/napoleon-dynamite.jpg",
+  "http://rack.0.mshcdn.com/media/ZgkyMDEzLzA4LzA1L2RiL3RvbWZlbGRvbi41NmRjNi5naWYKcAl0aHVtYgk4NTB4NTkwPgplCWpwZw/05cd12cc/645/tom-feldon.jpg",
+  "http://rack.3.mshcdn.com/media/ZgkyMDEzLzA4LzA1L2JmL2hpbXltLjU4YTEyLmdpZgpwCXRodW1iCTg1MHg1OTA-CmUJanBn/90a990f6/b38/himym.jpg",
+  "http://rack.3.mshcdn.com/media/ZgkyMDEzLzA4LzA1L2U1L2NvbGJlcnRyZXBvLjVjNmYxLmdpZgpwCXRodW1iCTg1MHg1OTA-CmUJanBn/710824a0/764/colbert-report.jpg",
+  "http://rack.1.mshcdn.com/media/ZgkyMDEzLzA4LzA1LzYyL2FuY2hvcm1hbi42NjJkYS5naWYKcAl0aHVtYgk4NTB4NTkwPgplCWpwZw/009ee80f/1c0/anchorman.jpg",
+  "http://rack.3.mshcdn.com/media/ZgkyMDEzLzA4LzA1LzFmL2hhcnJ5cG90dGVyLjYxNjYzLmdpZgpwCXRodW1iCTg1MHg1OTA-CmUJanBn/db79fc85/147/harry-potter.jpg",
+  "http://www.velocityindiana.org/wp-content/uploads/2014/08/bff.gif",
+  "http://i.kinja-img.com/gawker-media/image/upload/s--_dYUH9jW--/18vvnw5taib2ogif.gif",
+  "https://31.media.tumblr.com/e844e0925dbd8699ddb68fb2408d61b6/tumblr_mqrjr2oH0G1r3kc9vo1_250.gif",
+  "http://i.kinja-img.com/gawker-media/image/upload/s--0wAEcaN4--/c_fit,fl_progressive,q_80,w_636/bdbtzjrhyyuarpfbqksn.gif",
+  "http://media.giphy.com/media/vpybhig8QFLOM/giphy.gif",
+  "https://media.giphy.com/media/3o85xzwOcKkOw67ywg/giphy.gif",
+  "https://ladygeekgirl.files.wordpress.com/2012/01/1352309-huzzah1_super1.jpg"
+]
+
+starWarsReplies = [
+  'https://i.imgur.com/el6C68M.gif',
+  'https://i.imgur.com/wv2wnW2.jpg'
+]
+
 willRespond = () ->
   min = 1
   max = 100
@@ -169,7 +250,7 @@ willRespond = () ->
 
 module.exports = (robot) ->
   
-  # The catchall
+# The catchall
 #   robot.catchAll (msg) ->
 #     console.log 'Catch all caught #{msg.message.text}'
 #     r = new RegExp "^(?:#{robot.alias}|#{robot.name}) (.*)", "i"
@@ -241,7 +322,7 @@ module.exports = (robot) ->
     
   # Show Dos Equis man when someone mentions production or prod
   robot.hear /\b(prod|production)\b/igm, (msg) ->
-    msg.send "http://i.imgur.com/jHWJLpm.png" if willRespond()
+    msg.reply msg.random productionReplies if willRespond()
     
   # Show the Friday guy when someone mentions Friday
   robot.hear /friday/i, (msg) ->
@@ -249,15 +330,15 @@ module.exports = (robot) ->
   
   # Give 'em an emergency hug
   robot.hear /\b(need|needs)\b.+\bhug\b/igm, (msg) ->
-    msg.send "http://i.imgur.com/cFId9Js.gifv" if willRespond()
+    msg.send msg.random hugReplies if willRespond()
   
   # Somebody found a bug!
   robot.hear /\bfound\b.+\bbug\b/igm, (msg) ->
-    msg.reply "http://i.imgur.com/7cyL3Mg.gifv" if willRespond()
+    msg.send msg.random bugReplies if willRespond()
   
   # Somebody tried to blame it on a race condition
   robot.hear /race\s?condition/i, (msg) ->
-    msg.send "https://i.imgur.com/g74QhGM.jpg" if willRespond()
+    msg.send msg.random raceConditionReplies if willRespond()
     
   # Somebody mentioned the grouper
   robot.hear /grouper/i, (msg) ->
@@ -274,21 +355,17 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         msg.send body
 
-  # SeaLab 2021 Energy!
-  robot.hear /energy/i, (msg) ->
-    msg.send "I have the energy of a bear that has the energy of two bears!" if willRespond()
-
-  # SeaLab 2021 Bad Idea!
+  # Bad idea!
   robot.hear /bad idea/i, (msg) ->
-    msg.reply "Oh why don't you just shout down every idea I have? How about you call Bruce Springsteen and tell him to get another nickname since you're already the Boss! Huh? Yeah? Yeah!" if willRespond()
+    msg.reply msg.random badIdeaReplies if willRespond()    
   
   # This coffee sucks!
   robot.hear /coffee/i, (msg) ->
-    msg.reply msg.random coffeeReplies if willRespond()
+    msg.send msg.random coffeeReplies if willRespond()
 
   # Have something to drink
   robot.hear /something to drink/i, (msg) ->
-    msg.reply "Here, be sure to drink it all, sometimes the poison is on the bottom." if willRespond()
+    msg.reply msg.random drinkReplies if willRespond()
 
   # Drunk
   robot.hear /(\W|^)(drunk|margarita|cantina|beer|whiskey|vodka|booze)(\W|$)/i, (msg) ->
@@ -300,44 +377,40 @@ module.exports = (robot) ->
 
   # Trouble
   robot.hear /trouble/i, (msg) ->
-    msg.reply msg.random troubleReplies if willRespond()
-
-  # Plaid
-  robot.hear /plaid/i, (msg) ->
-    msg.reply "Plaid with _that_ outfit? Ew! I'm a naked robot and even *I* know that's a fashion _don't_." if willRespond()
+    msg.send msg.random troubleReplies if willRespond()
 
   # Theory
   robot.hear /theory/i, (msg) ->
-    msg.reply "The scientific theory I like best is that the rings of Saturn are composed entirely of lost airline luggage." if willRespond()
- 
-  # Offense
-  robot.hear /offense/i, (msg) ->
-    msg.reply "Humans are weird. Why do they say 'no offense' right before they’re about to offend you?" if willRespond()
+    msg.send msg.random theoryReplies if willRespond()
  
   # Skydive
   robot.hear /(\W|^)(skydive|skydiving|parachute)(\W|$)/i, (msg) ->
-    msg.reply "If at first you don’t succeed... so much for skydiving." if willRespond()
+    msg.reply msg.random skydiveReplies if willRespond()
 
   # Argument
   robot.hear /argument/i, (msg) ->
-    msg.reply "Nothing sucks more than that moment during an argument when you realize you’re wrong." if willRespond()
+    msg.send msg.random argumentReplies if willRespond()    
 
   # Chicken
   robot.hear /(\W|^)(chicken|dream)(\W|$)/i, (msg) ->
-    msg.reply "I dream of a better tomorrow, where chickens can cross the road and not be questioned about their motives." if willRespond()
+    msg.send msg.random chickenReplies if willRespond()
 
   # Acceptance Criteria
   robot.hear /(\W|^)(ac|spec|specification|criteria)(\W|$)/i, (msg) ->
-    msg.reply msg.random acReplies if willRespond()
+    msg.send msg.random acReplies if willRespond()
 
   # Running Late
   robot.hear /\b(\W|^)(be|running)\b.+\blate\b(\W|$)/igm, (msg) ->
-    msg.reply msg.random runningLateReplies if willRespond()
+    msg.send msg.random runningLateReplies if willRespond()
 
   # Database
   robot.hear /(\W|^)(database|db)(\W|$)/i, (msg) ->
-    msg.reply msg.random databaseReplies if willRespond()
+    msg.send msg.random databaseReplies if willRespond()
     
   # Tests Failing
   robot.hear /\b(\W|^)(test|tests)\b.+\b(failed|failing)\b(\W|$)/igm, (msg) ->
     msg.reply msg.random testFailReplies if willRespond()
+
+  # Victory!
+  robot.hear /victory\b/i, (msg) ->
+    msg.send msg.random victory if willRespond()
