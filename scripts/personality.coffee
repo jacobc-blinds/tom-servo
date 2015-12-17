@@ -241,7 +241,17 @@ starWarsReplies = [
   'https://i.imgur.com/wv2wnW2.jpg',
   'https://i.imgur.com/y3GgF9y.jpg',
   'https://i.imgur.com/OcVirS0.jpg',
-  'https://i.imgur.com/mBBoeT7.jpg'
+  'https://i.imgur.com/mBBoeT7.jpg',
+  'https://i.imgur.com/myMj1L0.jpg',
+  'https://i.imgur.com/vk2Tast.jpg',
+  'https://i.imgur.com/0PkcZut.jpg',
+  'https://i.imgur.com/iu3Z4US.jpg',
+  'https://i.imgur.com/JxWnWEs.jpg',
+  'https://i.imgur.com/fcRE2qs.jpg',
+  'https://www.youtube.com/watch?v=hEcjgJSqSRU',
+  'https://www.youtube.com/watch?v=CeLrlmV9A-s',
+  'https://www.youtube.com/watch?v=3zYOw7v6TFE',
+  'https://www.youtube.com/watch?v=gd5yB9Vmd6I'
 ]
 
 willRespond = () ->
@@ -416,4 +426,8 @@ module.exports = (robot) ->
 
   # Victory!
   robot.hear /victory\b/i, (msg) ->
-    msg.send msg.random victory if willRespond()
+    msg.send msg.random victoryReplies if willRespond()
+    
+  # Star Wars
+  robot.hear /star wars/i, (msg) ->
+    msg.send msg.random starWarsReplies
