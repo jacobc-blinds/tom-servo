@@ -23,4 +23,11 @@ module.exports = (robot) ->
   # Test Accounts
   robot.hear /\b(\W|^)(test|testing)\b.+\b(accounts|account)\b(\W|$)/igm, (msg) ->
     msg.reply "Here are the Autobahn test accounts:\nnobrainer2\\acstest1 (Customer Service Manager)\nnobrainer2\\acstest2 (Accounting Manager)\nnobrainer2\\SOTManager"
-
+    
+  # TeamCity URL
+  robot.hear /\b(\W|^)(team city|teamcity)\b.+\b(url|uri|address|link)\b(\W|$)/igm, (msg) ->
+    msg.reply "Here's a link to the TeamCity server... http://dev-deploy-1.nobrainer2.com:81"
+  
+  # Octopus URL
+  robot.hear /\b(\W|^)(octopus)\b.+\b(url|uri|address|link)\b(\W|$)/igm, (msg) ->
+    msg.reply "Here's a link to the Octopus server... http://deploy.southsidesoft.com"
