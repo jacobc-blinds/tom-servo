@@ -154,7 +154,7 @@ module.exports = (robot) ->
   robot.respond /show snoops/i, (msg) ->
     response = "\n"
     
-    if not snoop.savedSnoops
+    if not snoop.savedSnoops || snoop.savedSnoops.length == 0
       response += "I'm not snooping on anything!"
     else
       for task in snoop.savedSnoops
