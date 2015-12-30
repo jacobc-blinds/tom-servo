@@ -56,13 +56,19 @@ class MigrationTracker
     
     # Start with an empty set of migrations...
     todaysMigrations = []
+    migrationNumbers = []
     
     # Now grab every migration for today...
     for migration in assignedMigrations
-      if new RegExp(migration.date, "i").test(migrationDate)
+      if migration.date == migrationDate
         todaysMigrations.push migration
+        migrationNumbers.push migration.number
     
-    migrationNumber = todaysMigrations.length + 1
+    if migrationNumbers.length is 0
+      migrationNumber = 1
+    else
+      migrationNumber = Math.max migrationNumbers...
+      migrationNumber++
     
     migrationName = migrationDate + migrationNumber
     
