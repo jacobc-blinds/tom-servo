@@ -49,7 +49,7 @@ class MigrationTracker
         dd = '0' + dd
     if mm < 10
         mm = '0' + mm
-    migrationDate = "#{yyyy}#{mm}#{dd}"
+    migrationDate = "#{yyyy}-#{mm}-#{dd}-"
     
     # Grab what we know...
     assignedMigrations = @assignedMigrations
