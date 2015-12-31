@@ -111,7 +111,7 @@ module.exports = (robot) ->
     msg.reply result
 
   # hubot delete all migrations
-  robot.respond /delete all migrations$/i, (msg) ->
+  robot.respond /delete all migrations/i, (msg) ->
     result = tracker.deleteAll()
     msg.send result
 

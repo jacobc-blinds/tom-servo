@@ -162,11 +162,6 @@ coffeeReplies = [
   'You know, our coffee tastes like it came out of an oil derrick. What\'d you strain it through, a mummy?'
 ]
 
-productionReplies = [
-  'http://i.imgur.com/jHWJLpm.png',
-  'Production... where dreams go to die.'
-]
-
 hugReplies = [
   'http://i.imgur.com/cFId9Js.gifv'
 ]
@@ -336,10 +331,6 @@ module.exports = (robot) ->
   # Show the messed up goat when someone mentions a merge conflict
   robot.hear /merge\s?conflict/i, (msg) ->
     msg.reply msg.random mergeConflictReplies if willRespond()
-    
-  # Show Dos Equis man when someone mentions production or prod
-  robot.hear /\b(prod|production)\b/igm, (msg) ->
-    msg.reply msg.random productionReplies if willRespond()
     
   # Show the Friday guy when someone mentions Friday
   robot.hear /friday/i, (msg) ->
