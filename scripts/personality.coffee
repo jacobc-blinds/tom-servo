@@ -254,6 +254,10 @@ starWarsReplies = [
   'https://www.youtube.com/watch?v=gd5yB9Vmd6I'
 ]
 
+worstCaseScenarioReplies = [
+    "https://ixquick-proxy.com/do/spg/show_picture.pl?l=english&rais=1&oiu=http%3A%2F%2Fresabi.files.wordpress.com%2F2010%2F11%2Fwurst.jpg&sp=792aa5566d2e759cbf257675d47e02dc"
+]
+
 willRespond = () ->
   min = 1
   max = 100
@@ -431,3 +435,7 @@ module.exports = (robot) ->
   # Star Wars
   robot.hear /star wars/i, (msg) ->
     msg.send msg.random starWarsReplies
+  
+  # Worst Case Scenario
+  robot.hear /worst.*case.*scenario/i, (msg) ->
+    msg.send msg.random worstCaseScenarioReplies
