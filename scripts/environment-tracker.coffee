@@ -8,8 +8,12 @@
 #   None
 #
 # Commands:
-#   hubot assign environment - Assigns an environment to the requesting user
+#   hubot assign environment <name> - Assigns an environment to the requesting user
+#   hubot assign environment <name> to <user> - Assigns an environment to a user
 #   hubot show environments - Shows the assigned environments
+#   hubot delete environment <name> - Deletes an environment assignment
+#   hubot delete all environments - Deletes all environments
+#   hubot environment help - Shows a help message for environment tracking
 #
 # Author:
 #   Greg Major
@@ -53,7 +57,7 @@ class EnvironmentTracker
     
     if environmentName in ["PRODUCTION", "PROD"]
       @robot.send {room: user}, "Nice try."
-      return
+      return "Hey, we need to keep an eye on this person!"
    
     if environmentName not in expectedEnvironmentNames
       @robot.send {room: user}, "That isn't an environment name I recognize, but okay. If you made a mistake, you can always delete it."
@@ -61,6 +65,10 @@ class EnvironmentTracker
     # Get the existing environment...
     existingEnvironment = @getEnvironment environmentName
     
+    if existingEnvironment and existingEnvironment.user.toUpperCase() is user.toUpperCase()
+      return "You've already been assigned to #{environmentName}!"
+    
+    # Tell the existing user that someone has taken their environment...
     if existingEnvironment
       @robot.send {room: existingEnvironment.user}, "Hey, #{existingEnvironment.user}! #{user} is taking control of #{environmentName}!"
     
@@ -77,14 +85,14 @@ class EnvironmentTracker
     @assignedEnvironments.push newEnvironmentAssignment
     @updateBrain @assignedEnvironments
     
-    @robot.send {room: user}, "Okay, I have assigned environment #{newEnvironmentAssignment.key} to you as of #{dateAssigned}." 
+    return "Okay, I have assigned environment #{newEnvironmentAssignment.key} to #{user} as of #{dateAssigned}." 
   
   # Deletes an assigned environment.
   deleteByName: (environmentName) ->
     found = (environment for environment in @assignedEnvironments when environment.key.toUpperCase() is environmentName.toUpperCase())
-    if not found || found.length == 0
+    if not found or found.length == 0
       return "Environment #{environmentName} does not exist!"
-    @assignedEnvironments = @assignedEnvironments.filter (n) -> n.key != environmentName
+    @assignedEnvironments = @assignedEnvironments.filter (n) -> n.key != environmentName.toUpperCase()
     @updateBrain @assignedEnvironments
     return "Okay, I have deleted #{environmentName}."
   
@@ -138,10 +146,18 @@ module.exports = (robot) ->
   tracker = new EnvironmentTracker robot
   
   # hubot assign environment <name>
-  robot.respond /(assign|give me|take|steal) environment (.+?)$/i, (msg) ->
+  robot.respond /(assign|give me|take|steal) environment ([^ ]+)$/i, (msg) ->
     environmentName = msg.match[2]
     result = tracker.add(msg, environmentName, msg.message.user.name)
+    msg.send result
 
+  # hubot assign environment <name> to <user>
+  robot.respond /(assign|give) environment ([^ ]+) to ([^ ]+)$/i, (msg) ->
+    environmentName = msg.match[2]
+    assignee = msg.match[3]
+    result = tracker.add(msg, environmentName, assignee)
+    msg.send result
+    
   # hubot delete all environments
   robot.respond /delete all environments/i, (msg) ->
     result = tracker.deleteAll()
@@ -150,7 +166,6 @@ module.exports = (robot) ->
   # hubot delete environment <name>
   robot.respond /delete environment (.+?)$/i, (msg) ->
     environmentName = msg.match[1]
-    console.log environmentName
     result = tracker.deleteByName(environmentName)
     msg.send result
 
@@ -158,3 +173,15 @@ module.exports = (robot) ->
   robot.respond /(show|list) environments/i, (msg) ->
     result = tracker.showAll()
     msg.send result
+  
+  # hubot environment help
+  robot.respond /(environment|environments) help/i, (msg) ->
+    help = "\n"
+    help += "Here are the environment tracking commands you can give me:\n\n"
+    help += "assign environment <name> - Assigns an environment to the requesting user\n"
+    help += "assign environment <name> to <user> - Assigns an environment to a user\n"
+    help += "show environments - Shows the assigned environments\n"
+    help += "delete environment <name> - Deletes an environment assignment\n"
+    help += "delete all environments - Deletes all environments\n"
+    help += "environment help - Shows this help message"
+    msg.send help

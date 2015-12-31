@@ -11,6 +11,7 @@
 #   hubot assign migration - Assigns a migration number to the requesting user
 #   hubot delete migration <name> - Deletes an assigned migration
 #   hubot show migrations - Shows the assigned migrations
+#   hubot migration help - Shows a help message for migration tracking
 #
 # Author:
 #   Greg Major
@@ -132,3 +133,12 @@ module.exports = (robot) ->
         response += "#{migration.key} is assigned to #{migration.user}\n"
     
     msg.send response
+
+  # hubot migration help
+  robot.respond /(migration|migrations) help/i, (msg) ->
+    help = "\n"
+    help += "Here are the database migration tracking commands you can give me:\n\n"
+    help += "assign migration - Assigns a migration number to the requesting user"
+    help += "delete migration <name> - Deletes an assigned migration"
+    help += "show migrations - Shows the assigned migrations"
+    msg.send help
