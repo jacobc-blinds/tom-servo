@@ -41,6 +41,7 @@ class MigrationTracker
   
   # Assigns a new migration.
   add: (user) ->
+    
     # Get today's date in YYYYMMDD format...
     today = new Date
     dd = today.getDate()
@@ -73,10 +74,26 @@ class MigrationTracker
     
     migrationName = migrationDate + migrationNumber
     
+    template = "```using FluentMigrator;\n"
+    template += "\n"
+    template += "namespace Autobahn.DataMigrations.Migrations\n"
+    template += "{\n"
+    template += "    [Migration(#{yyyy}#{mm}#{dd}#{migrationNumber})]\n"
+    template += "    public class Migration_#{yyyy}#{mm}#{dd}#{migrationNumber}_NewMigration : ForwardOnlyMigration\n"
+    template += "    {\n"
+    template += "        public override void Up()\n"
+    template += "        {\n"
+    template += "            Execute.EmbeddedScript(\"Migration_#{yyyy}#{mm}#{dd}#{migrationNumber}_NewMigration.sql\");\n"
+    template += "        }\n"
+    template += "    }\n"
+    template += "}```"
+    
     newMigration = {key: migrationName, date: migrationDate, number: migrationNumber, user: user}
     @assignedMigrations.push newMigration
     @updateBrain @assignedMigrations
-    return "Okay, I have assigned migration #{newMigration.key} to you."
+    response = "Okay, I have assigned #{migrationName} to you. Here's a template:\n\n"
+    response += template
+    return response
   
   # Deletes an assigned migration.
   deleteByName: (migrationName) ->
