@@ -56,21 +56,24 @@ class EnvironmentTracker
     environmentName = environmentName.toUpperCase()
     
     if environmentName in ["PRODUCTION", "PROD"]
-      @robot.send {room: user}, "Nice try."
+      try @robot.send {room: user}, "Nice try."
+      catch ex then console.log ex
       return "Hey, we need to keep an eye on this person!"
    
     if environmentName not in expectedEnvironmentNames
-      @robot.send {room: user}, "That isn't an environment name I recognize, but okay. If you made a mistake, you can always delete it."
+      try @robot.send {room: user}, "That isn't an environment name I recognize, but okay. If you made a mistake, you can always delete it."
+      catch ex then console.log ex
     
     # Get the existing environment...
     existingEnvironment = @getEnvironment environmentName
     
     if existingEnvironment and existingEnvironment.user.toUpperCase() is user.toUpperCase()
-      return "You've already been assigned to #{environmentName}!"
+      return "#{environmentName} is already assigned to you!"
     
     # Tell the existing user that someone has taken their environment...
     if existingEnvironment
-      @robot.send {room: existingEnvironment.user}, "Hey, #{existingEnvironment.user}! #{user} is taking control of #{environmentName}!"
+      try @robot.send {room: existingEnvironment.user}, "Hey, #{existingEnvironment.user}! #{user} is taking control of #{environmentName}!"
+      catch ex then console.log ex
     
     # Delete the old environment assignment...
     this.deleteByName environmentName
