@@ -39,6 +39,10 @@ class MigrationTracker
   # Gets all the migrations. ALL THE MIGRATIONS!
   assignedMigrations: -> @assignedMigrations
   
+  # Pads a number with leading zeros.
+  padDigits: (number, digits) ->
+    return Array(Math.max(digits - String(number).length + 1, 0)).join(0) + number
+  
   # Assigns a new migration.
   add: (user) ->
     
@@ -71,6 +75,8 @@ class MigrationTracker
     else
       migrationNumber = Math.max migrationNumbers...
       migrationNumber++
+      
+    migrationNumber = @padDigits(migrationNumber, 2)
     
     migrationName = migrationDate + migrationNumber
     
