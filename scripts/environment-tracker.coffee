@@ -182,7 +182,7 @@ class EnvironmentTracker
     else  
       response += stringTable.create(@assignedEnvironments, { capitalizeHeaders: true, headers: ['key', 'user', 'date'] })
     
-    response = "```"
+    response += "```"
     
     return response
   
