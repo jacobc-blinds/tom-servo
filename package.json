@@ -28,7 +28,8 @@
     "scraper": "0.0.9",
     "underscore": "*",
     "util": "*",
-    "wolfram-alpha": "^0.2.1"
+    "wolfram-alpha": "^0.2.1",
+    "string-table": "^0.1.5"
   },
   "engines": {
     "node": "0.10.x"
