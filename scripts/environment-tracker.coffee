@@ -175,13 +175,14 @@ class EnvironmentTracker
   
   # Shows all the assigned environments.
   showAll: () ->
-    response = "\n"
+    response = "```\n"
     
     if not @assignedEnvironments || @assignedEnvironments.length == 0
       response += "I haven't assigned any environments!"
-    else
-      
+    else  
       response += stringTable.create(@assignedEnvironments, { capitalizeHeaders: true, headers: ['key', 'user', 'date'] })
+    
+    response = "```"
     
     return response
   
