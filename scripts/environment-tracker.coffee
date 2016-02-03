@@ -391,6 +391,7 @@ module.exports = (robot) ->
     help += "assign environment <name> to <user> - Assigns an environment to a user\n"
     help += "release environment <name> - Releases an assigned environment\n"
     help += "show environments - Shows the assigned environments\n"
+    help += "show environment <name> details - Shows details about an environment\n"
     help += "delete environment <name> - Deletes an environment assignment\n"
     help += "delete all environments - Deletes all environments\n"
     help += "environment help - Shows this help message"
