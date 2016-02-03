@@ -53,7 +53,8 @@ class EnvironmentTracker
         "STAGE",
         "DEV",
         "UAT",
-        "STAGE2"
+        "STAGE2",
+        "PRODUCTION"
     ]
     
     environmentName = environmentName.toUpperCase()
@@ -151,6 +152,128 @@ class EnvironmentTracker
     
     return true
   
+  # Gets all the environment details.
+  getAllEnvironmentDetails: () ->
+    currentThdRail = "71" # Changing this will change the URL for some sites.
+    
+    return [
+      {
+          key: "PRODUCTION",
+          ronaele: "https://admin.blinds.ca/",
+          bdc: "https://web.blinds.com/",
+          bca: "https://www.blinds.ca/",
+          thd: "https://blinds.homedepot.com/",
+          thdm: "http://m.blinds.homedepot.com/",
+          thdt: "http://t.blinds.homedepot.com/",
+          thdapi: "http://blinds-api.homedepot.com/",
+          rabbitmq: "http://internal-prod1-rabbit-2052930617.us-east-1.elb.amazonaws.com:15672/",
+          sod: "http://blindsadmin.prod1.blinds.com/SalesOrderDistribution/OrderDistribution",
+          pops: "unassigned"
+      },
+      {
+          key: "STAGE",
+          ronaele: "http://stage.admin.blinds.ca/",
+          bdc: "http://stage.autobahn.blinds.com/",
+          bca: "http://stage.www.blinds.ca/",
+          thd: "https://stage-blinds.hd-qp71.homedepotdev.com/",
+          thdm: "http://t.dev-blinds.hd-st71.homedepotdev.com/",
+          thdt: "http://t.stage-blinds.hd-qp71.homedepotdev.com/",
+          thdapi: "http://stage.thdapi.blinds.ca/",
+          rabbitmq: "http://internal-stage1-rabbit-1727276512.us-east-1.elb.amazonaws.com:15672/",
+          sod: "http://blindsadmin.stage1.blinds.com/SalesOrderDistribution/OrderDistribution",
+          pops: "unassigned"
+      },
+      {
+          key: "UAT",
+          ronaele: "http://uat.admin.blinds.ca/",
+          bdc: "http://uat.autobahn.blinds.com/",
+          bca: "http://uat.www.blinds.ca/",
+          thd: "https://uat-blinds.hd-qa72stg.homedepotdev.com/",
+          thdm: "http://m.uat-blinds.hd-qa72stg.homedepotdev.com/",
+          thdt: "http://t.uat-blinds.hd-qa72stg.homedepotdev.com/",
+          thdapi: "http://uat.thdapi.blinds.ca/",
+          rabbitmq: "http://internal-test-rabbit-1582700312.us-east-1.elb.amazonaws.com:15672/",
+          sod: "http://blindsadmin.uat1.blinds.com/SalesOrderDistribution/OrderDistribution",
+          pops: "unavailable"
+      },
+      {
+          key: "QA1",
+          ronaele: "http://qa1.admin.blinds.ca/",
+          bdc: "http://qa1.autobahn.blinds.com/",
+          bca: "http://qa1.www.blinds.ca/",
+          thd: "http://qa-blinds.hd-qa#{currentThdRail}.homedepotdev.com/",
+          thdm: "http://m.qa-blinds.hd-qa#{currentThdRail}.homedepotdev.com/",
+          thdt: "http://t.qa-blinds.hd-qa#{currentThdRail}.homedepotdev.com/",
+          thdapi: "http://qa1.thdapi.blinds.ca/",
+          rabbitmq: "http://internal-test-rabbit-1582700312.us-east-1.elb.amazonaws.com:15672/",
+          sod: "unavailable",
+          pops: "unavailable"
+      },
+      {
+          key: "QA2",
+          ronaele: "http://qa2.admin.blinds.ca/",
+          bdc: "http://qa2.autobahn.blinds.com/",
+          bca: "http://qa2.www.blinds.ca/",
+          thd: "http://qa2.thd.blinds.ca/p/levolor-classic-2-in-faux-wood-blind/205930452",
+          thdm: "http://m-qa2.thd.blinds.ca/p/levolor-classic-2-in-faux-wood-blind/205930452",
+          thdt: "unavailable",
+          thdapi: "http://qa2.thdapi.blinds.ca/",
+          rabbitmq: "http://internal-test-rabbit-1582700312.us-east-1.elb.amazonaws.com:15672/",
+          sod: "unavailable",
+          pops: "unavailable"
+      },
+      {
+          key: "QA3",
+          ronaele: "http://qa3.admin.blinds.ca/",
+          bdc: "http://qa3.autobahn.blinds.com/",
+          bca: "http://qa3.www.blinds.ca/",
+          thd: "http://qa3.thd.blinds.ca/p/levolor-classic-2-in-faux-wood-blind/205930452",
+          thdm: "http://m-qa3.thd.blinds.ca/p/levolor-classic-2-in-faux-wood-blind/205930452",
+          thdt: "unavailable",
+          thdapi: "http://qa3.thdapi.blinds.ca/",
+          rabbitmq: "http://internal-test-rabbit-1582700312.us-east-1.elb.amazonaws.com:15672/",
+          sod: "unavailable",
+          pops: "unavailable" 
+      },
+      {
+          key: "QA4",
+          ronaele: "http://qa4.admin.blinds.ca/",
+          bdc: "http://qa4.autobahn.blinds.com/",
+          bca: "http://qa4.www.blinds.ca/",
+          thd: "http://qa4.thd.blinds.ca/p/levolor-classic-2-in-faux-wood-blind/205930452",
+          thdm: "http://m-qa4.thd.blinds.ca/p/levolor-classic-2-in-faux-wood-blind/205930452",
+          thdt: "unavailable",
+          thdapi: "http://qa4.thdapi.blinds.ca/",
+          rabbitmq: "http://internal-test-rabbit-1582700312.us-east-1.elb.amazonaws.com:15672/",
+          sod: "unavailable",
+          pops: "unavailable" 
+      },
+      {
+          key: "DEV",
+          ronaele: "http://dev.admin.blinds.ca/",
+          bdc: "http://dev.autobahn.blinds.com/",
+          bca: "http://dev.www.blinds.ca/",
+          thd: "http://dev.thd.blinds.ca/p/levolor-classic-2-in-faux-wood-blind/205930452",
+          thdm: "http://m-dev.thd.blinds.ca/p/levolor-classic-2-in-faux-wood-blind/205930452",
+          thdt: "http://t.dev-blinds.hd-st71.homedepotdev.com/",
+          thdapi: "http://dev.thdapi.blinds.ca/",
+          rabbitmq: "http://internal-test-rabbit-1582700312.us-east-1.elb.amazonaws.com:15672/",
+          sod: "http://blindsadmin.dev1.blinds.com/SalesOrderDistribution/OrderDistribution",
+          pops: "unavailable" 
+      }
+    ]
+  
+  # Gets the details for an environment.
+  getEnvironmentDetails: (environmentName) ->
+    allDetails = @getAllEnvironmentDetails()
+    
+    found = (detail for detail in allDetails when detail.key.toUpperCase() is environmentName.toUpperCase())
+    
+    if not found || found.length == 0
+      return
+    
+    return found[0]
+  
   # Gets an environment record by name.
   getEnvironment: (environmentName) ->
     found = (environment for environment in @assignedEnvironments when environment.key.toUpperCase() is environmentName.toUpperCase())
@@ -180,6 +303,28 @@ class EnvironmentTracker
       response += "I haven't assigned any environments!"
     else  
       response += stringTable.create(@assignedEnvironments, { capitalizeHeaders: true, headers: ['key', 'user', 'date'] })
+    
+    response += "```"
+    
+    return response
+  
+  # Shows details about an environment.
+  showDetail: (environmentName) ->
+    environmentName = environmentName.toUpperCase()
+    
+    if not @environmentExists environmentName
+      return "Environment #{environmentName} does not exist!"
+    
+    details = @getEnvironmentDetails environmentName
+    
+    if not details 
+      return "No details found for #{environmentName}!"
+    
+    response = "```\n"
+    response += "Here are the details for #{environmentName}:\n\n"
+    
+    for k,v of details
+      response += "#{k}: #{v}\n"
     
     response += "```"
     
@@ -231,8 +376,14 @@ module.exports = (robot) ->
   robot.respond /(show|list) environments/i, (msg) ->
     result = tracker.showAll()
     msg.send result
-  
-  # hubot environment help
+
+  # hubot show environment <name> details
+  robot.respond /(show|list) (environment|env) (.+?) (detail|details)$/i, (msg) ->
+    environmentName = msg.match[3]
+    result = tracker.showDetail(environmentName)
+    msg.send result
+
+# hubot environment help
   robot.respond /(environment|environments|env) help/i, (msg) ->
     help = "\n"
     help += "Here are the environment tracking commands you can give me:\n\n"
