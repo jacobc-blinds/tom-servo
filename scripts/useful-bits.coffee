@@ -10,6 +10,8 @@
 # Author:
 #   Greg Major
 
+stringTable = require('string-table')
+
 module.exports = (robot) ->
 
   # Test Credit Cards
@@ -23,11 +25,21 @@ module.exports = (robot) ->
   # Test Accounts
   robot.hear /\b(\W|^)(test|testing)\b.+\b(accounts|account)\b(\W|$)/igm, (msg) ->
     msg.reply "Here are the Autobahn test accounts:\nnobrainer2\\acstest1 (Customer Service Manager)\nnobrainer2\\acstest2 (Accounting Manager)\nnobrainer2\\SOTManager"
-    
-  # TeamCity URL
-  robot.hear /\b(\W|^)(team city|teamcity)\b.+\b(url|uri|address|link)\b(\W|$)/igm, (msg) ->
-    msg.reply "Here's a link to the TeamCity server... http://dev-deploy-1.nobrainer2.com:81"
   
-  # Octopus URL
-  robot.hear /\b(\W|^)(octopus)\b.+\b(url|uri|address|link)\b(\W|$)/igm, (msg) ->
-    msg.reply "Here's a link to the Octopus server... http://deploy.southsidesoft.com"
+  # Production URL's
+  robot.hear /(show|list)\b.+\b(links|urls|uris|sites|addresses)/i, (msg) ->
+    links = [
+      { name: "TeamCity", url: "http://dev-deploy-1.nobrainer2.com:81" }
+      { name: "Octopus", url: "http://deploy.southsidesoft.com" }
+      { name: "Slack", url: "https://globalcustomcommerce.slack.com" }
+      { name: "POPS", url: "http://pops.blinds.com" }
+      { name: "Ronaele (Admin)", url: "https://admin.blinds.ca" }
+      { name: "Blinds.com", url: "https://web.blinds.com" }
+      { name: "Blinds.ca", url: "https://www.blinds.ca" }
+    ]
+    console.log links
+    response = "```\n"
+    response += stringTable.create(links, { capitalizeHeaders: true })
+    response += "```"
+    msg.reply response
+    

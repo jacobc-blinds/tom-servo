@@ -20,7 +20,6 @@
 #   Greg Major
 
 stringTable = require('string-table')
-#require('string-table')
 
 class EnvironmentTracker
 
