@@ -430,3 +430,25 @@ module.exports = (robot) ->
   # Worst Case Scenario
   robot.hear /worst.*case.*scenario/i, (msg) ->
     msg.send msg.random worstCaseScenarioReplies
+
+  # Corgi Me!
+  robot.respond /corgi me/i, (msg) ->
+    msg.http("http://corginator.herokuapp.com/random")
+      .get() (err, res, body) ->
+        msg.send JSON.parse(body).corgi
+
+  # Corgi Bomb!
+  robot.respond /corgi bomb( (\d+))?/i, (msg) ->
+    count = msg.match[2] || 5
+    msg.http("http://corginator.herokuapp.com/bomb?count=" + count)
+      .get() (err, res, body) ->
+        msg.send corgi for corgi in JSON.parse(body).corgis
+        
+  # Developer Excuse
+  robot.respond /(?:developer excuse|excuse)(?: me)?/i, (msg) ->
+    robot.http("http://developerexcuses.com")
+      .get() (err, res, body) ->
+        matches = body.match /<a [^>]+>(.+)<\/a>/i
+
+        if matches and matches[1]
+          msg.send matches[1]
