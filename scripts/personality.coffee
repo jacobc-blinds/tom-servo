@@ -353,8 +353,8 @@ module.exports = (robot) ->
     msg.reply "http://i.imgur.com/aabaZC3.jpg"
     
   # Blame Thang!
-  robot.hear /blame\s?thang/i, (msg) ->
-    msg.reply msg.random blameThangReplies if willRespond()
+  #robot.hear /blame\s?thang/i, (msg) ->
+  #  msg.reply msg.random blameThangReplies if willRespond()
     
   # Get a Zen message from GitHub
   robot.hear /\bzen\b/i, (msg) ->
