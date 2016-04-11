@@ -459,3 +459,7 @@ module.exports = (robot) ->
 
         if matches and matches[1]
           msg.send matches[1]
+
+  # Azam!!
+  robot.hear /\!\!/i, (res) ->
+    res.send("http://i.imgur.com/52Y31js.png");
