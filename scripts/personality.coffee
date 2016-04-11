@@ -253,11 +253,18 @@ worstCaseScenarioReplies = [
     "https://ixquick-proxy.com/do/spg/show_picture.pl?l=english&rais=1&oiu=http%3A%2F%2Fresabi.files.wordpress.com%2F2010%2F11%2Fwurst.jpg&sp=792aa5566d2e759cbf257675d47e02dc"
 ]
 
-willRespond = () ->
+roomWhitelist = [
+    "Shell",
+    "ab_general",
+    "ab_random",
+    "servotesting"
+]
+
+willRespond = (room) ->
   min = 1
   max = 100
   randomValue = Math.floor(Math.random() * (max - min) + min)
-  return true if randomValue >= 70 # Make this lower if you want Servo to be a smartass more frequently
+  return true if randomValue >= 70 and room in roomWhitelist
   return false
 
 module.exports = (robot) ->
@@ -318,7 +325,7 @@ module.exports = (robot) ->
   
   # Soon
   robot.hear /\bso[o]+n\b/i, (msg) ->
-    msg.send msg.random soonImages if willRespond()
+    msg.send msg.random soonImages if willRespond(msg.message.room)
   
   # Stage is down
   robot.hear /\bstage\b.+\bdown\b/igm, (msg) ->
