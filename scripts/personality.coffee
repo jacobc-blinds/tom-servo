@@ -60,12 +60,12 @@ acReplies = [
   'Ah yes... acceptance. The final stage of grief.'
 ]
 
-blameThangReplies = [
-  'http://i.imgur.com/HArwLsc.jpg',
-  'http://i.imgur.com/lwaNNE1.jpg',
-  'http://i.imgur.com/ydPa6Au.jpg',
-  'http://i.imgur.com/KGpvKLJ.jpg'
-]
+# blameThangReplies = [
+#   'http://i.imgur.com/HArwLsc.jpg',
+#   'http://i.imgur.com/lwaNNE1.jpg',
+#   'http://i.imgur.com/ydPa6Au.jpg',
+#   'http://i.imgur.com/KGpvKLJ.jpg'
+# ]
 
 mergeConflictReplies = [
   'http://i.imgur.com/9tNUCyH.gifv',
@@ -79,17 +79,14 @@ fridayReplies = [
 
 troubleReplies = [
   'Why is the coat rack on fire?',
-  'You think you have troubles? Thang tried to install Windows 95 on my main hard drive last week!',
-  'Trouble? Did you blame Thang?',
   'Did Jason truncate the table again?'
 ]
 
 testFailReplies = [
-  'Hmmm... blame Thang?',
+  'Hmmm... blame the newest team member?',
   'Have you tried _not_ writing tests that fail?',
   'I\'ll bet Jason truncated the table again.',
-  'TDD stands for Tears Driven Development, right?',
-  'That\'s why @scott.horton doesn\'t write unit tests.'
+  'TDD stands for Tears Driven Development, right?'
 ]
 
 trafficReplies = [
@@ -358,10 +355,6 @@ module.exports = (robot) ->
   # Somebody mentioned the grouper
   robot.hear /grouper/i, (msg) ->
     msg.reply "http://i.imgur.com/aabaZC3.jpg"
-    
-  # Blame Thang!
-  #robot.hear /blame\s?thang/i, (msg) ->
-  #  msg.reply msg.random blameThangReplies if willRespond()
     
   # Get a Zen message from GitHub
   robot.hear /\bzen\b/i, (msg) ->
