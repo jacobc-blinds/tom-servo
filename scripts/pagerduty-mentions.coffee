@@ -16,6 +16,6 @@ module.exports = (robot) ->
 
   # Respond with an @channel mention whenever an escalated incident is echoed to the screen from PagerDuty.
   robot.hear /Escalated: Incident\b/i, (msg) ->
-    msg.send "@channel A ticket has been entered and not responded yet. If you are available, please take a look!"
+    msg.send "Hey, @channel! A PagerDuty alert has been triggerd, but not acknowledged. If you are available, please take a look!"
 
     
