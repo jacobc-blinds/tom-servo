@@ -82,7 +82,7 @@ class MigrationTracker
     
     template = "```using FluentMigrator;\n"
     template += "\n"
-    template += "namespace Autobahn.DataMigrations.Migrations\n"
+    template += "namespace Autobahn.DataMigrations.DB_01_Migrations\n"
     template += "{\n"
     template += "    [Migration(#{yyyy}#{mm}#{dd}#{migrationNumber})]\n"
     template += "    public class Migration_#{yyyy}#{mm}#{dd}#{migrationNumber}_NewMigration : ForwardOnlyMigration\n"
