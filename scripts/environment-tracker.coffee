@@ -307,6 +307,10 @@ class EnvironmentTracker
     response += "```"
     
     return response
+    
+  # get all the assigned environments data
+  getAll: () ->
+    return @assignedEnvironments
   
   # Shows details about an environment.
   showDetail: (environmentName) ->
@@ -396,3 +400,10 @@ module.exports = (robot) ->
     help += "delete all environments - Deletes all environments\n"
     help += "environment help - Shows this help message"
     msg.send help
+   
+# ##### 
+# REST API to get environment list of current environments. 
+# Do a GET call to http://<servos-host-address>/servo/environment
+# #####
+  robot.router.get '/servo/environment', (req, res) ->
+    res.send tracker.getAll()
