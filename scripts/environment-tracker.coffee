@@ -403,7 +403,7 @@ module.exports = (robot) ->
    
 # ##### 
 # REST API to get environment list of current environments. 
-# Do a GET call to http://<servos-host-address>/servo/environments/list
+# Do a GET call to http://<servos-host-address>/servo/environment
 # #####
-  robot.router.get '/servo/environments/list', (req, res) ->
+  robot.router.get '/servo/environment', (req, res) ->
     res.send tracker.getAll()
