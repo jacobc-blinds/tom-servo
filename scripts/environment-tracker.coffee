@@ -360,7 +360,7 @@ module.exports = (robot) ->
     msg.send result
   
 robot.respond /(assign|give|give me|take|steal) (?!environment|env|migration)/i, (msg) ->
-    msg.send "I don't know whether you want an environment or a migration.  Use 'assign environment' or 'assign env'"
+    msg.send "I don't know whether you want an environment or a migration. Use 'assign environment' or 'assign env'."
  
   # hubot release environment <name>
   robot.respond /(release|relinquish|abandon) (environment|env) ([^ ]+)$/i, (msg) ->
