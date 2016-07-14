@@ -347,18 +347,21 @@ module.exports = (robot) ->
   tracker = new EnvironmentTracker robot
   
   # hubot assign environment <name>
-  robot.respond /(assign|give me|take|steal) (environment|env) ([^ ]+)$/i, (msg) ->
+  robot.respond /(assign|give|give me|take|steal) (environment|env) ([^ ]+)$/i, (msg) ->
     environmentName = msg.match[3]
     result = tracker.add(msg, environmentName, msg.message.user.name)
     msg.send result
 
   # hubot assign environment <name> to <user>
-  robot.respond /(assign|give) (environment|env) ([^ ]+) to ([^ ]+)$/i, (msg) ->
+  robot.respond /(assign|give|give me|take|steal) (environment|env) ([^ ]+) to ([^ ]+)$/i, (msg) ->
     environmentName = msg.match[3]
     assignee = msg.match[4]
     result = tracker.add(msg, environmentName, assignee)
     msg.send result
   
+robot.respond /(assign|give|give me|take|steal) (?!environment|env|migration)/i, (msg) ->
+    msg.send "I don't know whether you want an environment or a migration.  Use 'assign environment' or 'assign env'"
+ 
   # hubot release environment <name>
   robot.respond /(release|relinquish|abandon) (environment|env) ([^ ]+)$/i, (msg) ->
     environmentName = msg.match[3]
