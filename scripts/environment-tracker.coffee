@@ -359,7 +359,7 @@ module.exports = (robot) ->
     result = tracker.add(msg, environmentName, assignee)
     msg.send result
   
-robot.respond /(assign|give|give me|take|steal) (?!environment|env|migration)/i, (msg) ->
+  robot.respond /(assign|give|give me|take|steal) (?!environment|env|migration)/i, (msg) ->
     msg.send "I don't know whether you want an environment or a migration. Use 'assign environment' or 'assign env'."
  
   # hubot release environment <name>
